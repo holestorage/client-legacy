@@ -1,10 +1,9 @@
 :root {
-    --theme-palette-main-dark: #292733;
-    --theme-palette-main-head: #1c1b24;
+    --theme-palette-main-head: #ffffff;
     --theme-palette-main-light: #36373d;
-    --theme-palette-main-color: #16141c;
-    --theme-palette-main-hover: #404249;
-    --theme-palette-main-input: #383a40;
+    --theme-palette-main-color: #f6f5f3;
+
+    --theme-brand-main-color: #0061fe;
 }
 
 html, body, .App, #root {
