@@ -1,0 +1,28 @@
+.container, .complete {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+
+    height: 100%;
+}
+
+.complete {
+    grid-template-columns: 240px 1fr 240px;
+}
+
+.container > aside, div {
+    overflow-y: auto;
+}
+
+.content {
+    background: var(--theme-palette-main-head);
+}
+
+.right, .left {
+    background: var(--theme-palette-main-color);
+}
+
+@media screen and (max-width: 800px) {
+    .grid {
+        grid-template-columns: 0 0 1fr;
+    }
+}

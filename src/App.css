@@ -1,0 +1,69 @@
+:root {
+    --theme-palette-main-dark: #1e1f22;
+    --theme-palette-main-head: #313338;
+    --theme-palette-main-light: #36373d;
+    --theme-palette-main-color: #2b2d31;
+    --theme-palette-main-hover: #404249;
+    --theme-palette-main-input: #383a40;
+}
+
+html, body, .App, #root {
+    height: 100vh;
+    width: 100vw;
+
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p {
+}
+
+button {
+    border: none;
+}
+
+input {
+    background: none;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea {
+    font: inherit;
+    border: none;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+}
+
+#undraggable {
+    -webkit-user-drag: none;
+}
