@@ -1,7 +1,10 @@
+import MainButton from "../../ui/button/main/main-button";
+
 export default function BoardPage() {
     return (
         <div>
-            <h1>test</h1>
+            <MainButton text="Upload file" />
+            <MainButton text="New folder" />
         </div>
     )
 }

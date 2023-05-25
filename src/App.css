@@ -4,6 +4,11 @@
     --theme-palette-main-color: #f6f5f3;
 
     --theme-brand-main-color: #0061fe;
+
+    --theme-palette-font-color-main: white;
+
+    --theme-value-padding-main: 14px;
+    --theme-value-padding-big: 20px;
 }
 
 html, body, .App, #root {
@@ -22,6 +27,7 @@ h1, h2, h3, p {
 }
 
 button {
+    cursor: pointer;
     border: none;
 }
 
