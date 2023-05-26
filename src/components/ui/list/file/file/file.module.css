@@ -1,3 +1,8 @@
 .container {
-    background: red;
+    border-radius: var(--theme-value-border_radius-min);
+    cursor: pointer;
+}
+
+.container:hover {
+    background: var(--theme-palette-main-hover);
 }
