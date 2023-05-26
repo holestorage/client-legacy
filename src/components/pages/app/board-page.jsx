@@ -3,6 +3,7 @@ import Container from "../../ui/container/container";
 import HeaderMain from "../../ui/header/main/header-main";
 import {Fragment} from "react";
 import FolderList from "../../ui/list/folder/folder-list";
+import FileList from "../../ui/list/file/file-list";
 
 export default function BoardPage() {
     return (
@@ -15,7 +16,7 @@ export default function BoardPage() {
             }>
                 <FolderList list={[{name: "Drive"}, {name: "Family"}]} />
             </HeaderMain>
-
+            <FileList />
         </Container>
     )
 }
