@@ -1,5 +1,9 @@
 import style from "./file-list.module.css";
 
+import File from "./file/file";
+import {Fragment} from "react";
+import Section from "../section/section/section";
+
 export default function FileList() {
     const list = [
         {
@@ -31,18 +35,20 @@ export default function FileList() {
 
     return (
         <div className={style.container}>
+            <div>
+                {
+                    sections.map((value, key) =>
+                        <Fragment key={key}>
+                            <Section value={value} />
+                        </Fragment>
+                    )
+                }
+            </div>
             {
-                sections.map((section, key) =>
-                    <div key={key}>
-                        {
-                            list.map((value, key) =>
-                                <div key={key}>
-                                    <h1>{section.name}</h1>
-                                    <p>{value[section.id]}</p>
-                                </div>
-                            )
-                        }
-                    </div>
+                list.map((value, key) =>
+                    <Fragment key={key}>
+                        <File value={value} />
+                    </Fragment>
                 )
             }
         </div>
