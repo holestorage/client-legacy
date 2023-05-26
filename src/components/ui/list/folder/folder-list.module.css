@@ -1,0 +1,17 @@
+.container {
+    width: max-content;
+
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--theme-value-padding-small);
+}
+
+.container > div {
+    padding: var(--theme-value-padding-small) var(--theme-value-padding-main);
+    border-radius: var(--theme-value-border_radius-min);
+    cursor: pointer;
+}
+
+.container > div:hover {
+    background: var(--theme-palette-main-hover);
+}
