@@ -2,4 +2,5 @@
     background: var(--theme-brand-main-color);
     color: var(--theme-palette-font-color-main);
     padding: var(--theme-value-padding-main) var(--theme-value-padding-big);
+    border-radius: var(--theme-value-border_radius-min);
 }

@@ -7,6 +7,10 @@
 
     --theme-palette-font-color-main: white;
 
+    --theme-value-border_radius-min: 8px;
+    --theme-value-border_radius-max: 999px;
+
+    --theme-value-padding-small: 6px;
     --theme-value-padding-main: 14px;
     --theme-value-padding-big: 20px;
 }

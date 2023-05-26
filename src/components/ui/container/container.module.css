@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    gap: var(--theme-value-padding-main);
+
+    padding: var(--theme-value-padding-main);
+}
