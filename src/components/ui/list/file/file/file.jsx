@@ -4,6 +4,7 @@ import ToolList from "../../tool/tool-list";
 export default function File({value}) {
     const section = [
         {
+            featured: true,
             list: [
                 {
                     id: 'open',
@@ -18,16 +19,17 @@ export default function File({value}) {
             ]
         },
         {
+            featured: true,
             list: [
                 {
                     id: 'share',
                     name: 'Share',
-                    icon: 'fa-regular fa-user-group'
+                    icon: 'fa-regular fa-user-plus'
                 },
                 {
                     id: 'send',
                     name: 'Send',
-                    icon: 'fa-regular fa-mailbox'
+                    icon: 'fa-regular fa-link'
                 }
             ]
         },
@@ -41,7 +43,7 @@ export default function File({value}) {
                 {
                     id: 'color',
                     name: 'Color',
-                    icon: 'fa-regular fa-paint-roller'
+                    icon: 'fa-regular fa-palette'
                 },
             ]
         },
@@ -72,7 +74,7 @@ export default function File({value}) {
             <p>{value.name}</p>
             <p>{value.date}</p>
             <p>{value.size}</p>
-            <ToolList section={section} />
+            <ToolList section={section.filter(item => item.featured)} />
         </div>
     )
 }

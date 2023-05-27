@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: 40px 1fr 40px 40px 200px;
     gap: var(--theme-value-padding-large);
+    align-items: center;
 
     padding: var(--theme-value-padding-main) var(--theme-value-padding-large);
 }

@@ -8,7 +8,7 @@ export default function ToolList({ section }) {
         <div className={style.container}>
             {
                 section.map((value, key) =>
-                    <div key={key}>
+                    <div className={style.element} key={key}>
                         {
                             value.list.map((value, key) =>
                                 <Fragment key={key}>

@@ -1,3 +1,8 @@
 .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    padding: var(--theme-value-padding-main);
+    border-radius: var(--theme-value-border_radius-min);
 }

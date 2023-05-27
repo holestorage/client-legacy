@@ -4,8 +4,14 @@
     gap: var(--theme-value-padding-main);
 }
 
-.container > div {
+.element {
     display: grid;
     grid-auto-flow: column;
     gap: var(--theme-value-padding-small);
+    align-items: center;
+}
+
+.element > button {
+    height: 40px;
+    width: 40px;
 }
