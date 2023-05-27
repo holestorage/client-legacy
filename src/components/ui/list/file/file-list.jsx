@@ -7,7 +7,7 @@ import Section from "../section/section/section";
 export default function FileList() {
     const list = [
         {
-            file: 'png',
+            type: 'image/png',
             name: 'test',
             date: '1',
             size: 1

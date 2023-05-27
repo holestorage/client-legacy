@@ -1,5 +1,7 @@
 import style from "./file.module.css";
+
 import ToolList from "../../tool/tool-list";
+import FileIcon from "./icon/file-icon";
 
 export default function File({value}) {
     const section = [
@@ -70,11 +72,13 @@ export default function File({value}) {
 
     return (
         <div className={style.container}>
-            <p>{value.file}</p>
+            <FileIcon type={value.type} />
             <p>{value.name}</p>
             <p>{value.date}</p>
             <p>{value.size}</p>
-            <ToolList section={section.filter(item => item.featured)} />
+            <div className={style.content}>
+                <ToolList section={section.filter(item => item.featured)} />
+            </div>
         </div>
     )
 }
