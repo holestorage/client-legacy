@@ -7,12 +7,6 @@ import FolderList from "../../ui/list/folder/folder-list";
 import FileList from "../../ui/list/file/file-list";
 
 const files = [
-    {
-        type: 'image/png',
-        name: 'test',
-        date: '1',
-        size: 1
-    }
 ]
 
 export default function BoardPage({ fallback }) {

@@ -3,13 +3,16 @@ import {Route, Routes, useLocation} from "react-router-dom";
 import SidebarLayout from "../../layout/sidebar-layout/sidebar-layout";
 import BoardPage from "../../pages/app/board-page";
 import MainCategory from "../../ui/category/main/main-category";
+import FilesFallback from "../../pages/fallback/pages/files-fallback";
+import TrashFallback from "../../pages/fallback/pages/trash-fallback";
 
 const category = [
     {
         list: [
             {
                 name: "Home",
-                icon: 'fa-regular fa-house-blank'
+                icon: 'fa-regular fa-house-blank',
+                path: ''
             },
             {
                 name: "Photos",
@@ -36,8 +39,9 @@ const category = [
     {
         list: [
             {
-                name: "Bin",
-                icon: 'fa-regular fa-trash'
+                name: "Trash",
+                icon: 'fa-regular fa-trash',
+                path: 'trash'
             }
         ]
     },
@@ -61,8 +65,8 @@ export default function AppView() {
     return (
         <SidebarLayout header={<p>test</p>} head={<p>test</p>} side={<p>test</p>} left={<MainCategory list={category} />}>
             <Routes location={location}>
-                <Route path="/" element={<BoardPage/>}/>
-                <Route path="/trash" element={<BoardPage/>}/>
+                <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
+                <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>
             </Routes>
         </SidebarLayout>
     )

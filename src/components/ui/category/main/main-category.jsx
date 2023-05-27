@@ -1,5 +1,7 @@
 import style from "./main-category.module.css";
 
+import {NavLink} from "react-router-dom";
+
 export default function MainCategory({ list }) {
     return (
         <div className={style.container}>
@@ -8,10 +10,10 @@ export default function MainCategory({ list }) {
                     <div key={key}>
                         {
                             section.list.map((value, key) =>
-                                <div className={style.element} key={key}>
+                                <NavLink className={({ isActive }) => isActive ? style.active : style.element} to={value.path} key={key}>
                                     <i className={value.icon} />
                                     <p>{value.name}</p>
-                                </div>
+                                </NavLink>
                             )
                         }
                     </div>
