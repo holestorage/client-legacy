@@ -1,11 +1,21 @@
+import {Fragment} from "react";
+
 import MainButton from "../../ui/button/main/main-button";
 import Container from "../../ui/container/container";
 import HeaderMain from "../../ui/header/main/header-main";
-import {Fragment} from "react";
 import FolderList from "../../ui/list/folder/folder-list";
 import FileList from "../../ui/list/file/file-list";
 
-export default function BoardPage() {
+const files = [
+    {
+        type: 'image/png',
+        name: 'test',
+        date: '1',
+        size: 1
+    }
+]
+
+export default function BoardPage({ fallback }) {
     return (
         <Container>
             <HeaderMain left={
@@ -16,7 +26,7 @@ export default function BoardPage() {
             }>
                 <FolderList list={[{name: "Drive"}, {name: "Family"}]} />
             </HeaderMain>
-            <FileList />
+            {files.length > 0 ? <FileList list={files} /> : fallback}
         </Container>
     )
 }

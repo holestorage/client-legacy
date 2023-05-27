@@ -1,6 +1,7 @@
 import style from "./tool-list.module.css";
 
 import {Fragment} from "react";
+
 import ToolButton from "../../button/tool/tool-button";
 
 export default function ToolList({ section }) {

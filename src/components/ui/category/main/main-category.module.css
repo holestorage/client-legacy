@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    gap: var(--theme-value-padding-big);
+
+    padding: 0 var(--theme-value-padding-small);
+}
+
+.container > div {
+    display: grid;
+    gap: var(--theme-value-padding-small);
+}
+
+.element {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: var(--theme-value-padding-small);
+    align-items: center;
+
+    padding: var(--theme-value-padding-small);
+
+    cursor: pointer;
+    border-radius: var(--theme-value-border_radius-min);
+}
+
+.element:hover {
+    background: var(--theme-palette-main-hover);
+}

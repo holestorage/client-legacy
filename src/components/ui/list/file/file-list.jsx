@@ -1,19 +1,11 @@
 import style from "./file-list.module.css";
 
-import File from "./file/file";
 import {Fragment} from "react";
+
+import File from "./file/file";
 import Section from "../section/section/section";
 
-export default function FileList() {
-    const list = [
-        {
-            type: 'image/png',
-            name: 'test',
-            date: '1',
-            size: 1
-        }
-    ]
-
+export default function FileList({ list }) {
     const sections = [
         {
             id: 'file',

@@ -40,7 +40,7 @@ export default function File({value}) {
                 {
                     id: 'pin',
                     name: 'Pin',
-                    icon: 'fa-regular fa-star'
+                    icon: 'fa-light fa-bookmark'
                 },
                 {
                     id: 'color',

@@ -7,7 +7,7 @@ export default function FileIcon({type}) {
             list: [
                 {
                     "name": "image",
-                    "icon": "fa-regular fa-image",
+                    icon: "fa-regular fa-camera",
                     "list": [
                         {"extension": "jpg", "mimetype": "image/jpeg"},
                         {"extension": "jpeg", "mimetype": "image/jpeg"},
