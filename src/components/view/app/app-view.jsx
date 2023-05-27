@@ -9,6 +9,7 @@ import AppNavbar from "../../navbar/app/app-navbar";
 import PagesList from "../../pages/list/pages-list";
 import MainSidebar from "../../sidebar/main/main-sidebar";
 import MainHead from "../../head/main/main-head";
+import PhotosFallback from "../../pages/fallback/pages/photos-fallback";
 
 const category = [
     {
@@ -76,6 +77,10 @@ export default function AppView() {
         <SidebarLayout header={<AppNavbar />} head={<MainHead />} side={<MainSidebar />} left={<MainCategory list={category} />}>
             <Routes location={location}>
                 <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
+                <Route path="/photos" element={<BoardPage fallback={<PhotosFallback />} />}/>
+                <Route path="/pinned" element={<BoardPage fallback={<FilesFallback />} />}/>
+                <Route path="/shared" element={<BoardPage fallback={<FilesFallback />} />}/>
+                <Route path="/recent" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>
             </Routes>
         </SidebarLayout>
