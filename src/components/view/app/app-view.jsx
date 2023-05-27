@@ -5,6 +5,7 @@ import BoardPage from "../../pages/app/board-page";
 import MainCategory from "../../ui/category/main/main-category";
 import FilesFallback from "../../pages/fallback/pages/files-fallback";
 import TrashFallback from "../../pages/fallback/pages/trash-fallback";
+import MainNavbar from "../../navbar/main/main-navbar";
 
 const category = [
     {
@@ -69,7 +70,7 @@ export default function AppView() {
     const location = useLocation();
 
     return (
-        <SidebarLayout header={<p>test</p>} head={<p>test</p>} side={<p>test</p>} left={<MainCategory list={category} />}>
+        <SidebarLayout header={<MainNavbar />} head={<p>test</p>} side={<p>test</p>} left={<MainCategory list={category} />}>
             <Routes location={location}>
                 <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>

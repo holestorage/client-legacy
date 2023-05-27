@@ -1,7 +1,7 @@
 import style from "./main-category.module.css";
 
-import MainTab from "../tab/main/main-tab";
 import {Fragment} from "react";
+import SlimTab from "../tab/slim/slim-tab";
 
 export default function MainCategory({ list }) {
     return (
@@ -12,7 +12,7 @@ export default function MainCategory({ list }) {
                         {
                             section.list.map((value, key) =>
                                 <Fragment key={key}>
-                                    <MainTab text={value.name} icon={value.icon} path={value.path} />
+                                    <SlimTab text={value.name} icon={value.icon} path={value.path} />
                                 </Fragment>
                             )
                         }

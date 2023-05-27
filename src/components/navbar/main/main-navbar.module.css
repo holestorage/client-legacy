@@ -1,0 +1,7 @@
+.container {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+
+    padding: var(--theme-value-padding-main) var(--theme-value-padding-large);
+}
