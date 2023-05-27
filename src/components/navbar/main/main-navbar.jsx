@@ -1,17 +1,20 @@
 import style from "./main-navbar.module.css";
 
-import PagesList from "../../pages/list/main-navbar-pages";
+import NavbarContainer from "../container/navbar-container";
+import PagesList from "../../pages/list/pages-list";
 
 export default function MainNavbar() {
     return (
-        <div className={style.container}>
-            <div>
+        <NavbarContainer>
+            <div className={style.container}>
+                <div>
 
-            </div>
-            <PagesList />
-            <div>
+                </div>
+                <PagesList inline />
+                <div>
 
+                </div>
             </div>
-        </div>
+        </NavbarContainer>
     )
 }

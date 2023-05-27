@@ -3,7 +3,7 @@ import style from "./inline-page-list.module.css";
 import {Fragment} from "react";
 import {Link} from "react-router-dom";
 
-import IconButton from "../../../ui/button/icon/icon-button";
+import MainTab from "../../../ui/category/tab/main/main-tab";
 
 export default function InlinePageList({ list }) {
     return (
@@ -12,7 +12,7 @@ export default function InlinePageList({ list }) {
                 list.map((value, key) =>
                     <Fragment key={key}>
                         <Link to={value.path}>
-                            <IconButton icon={value.icon} />
+                            <MainTab text={value.name} icon={value.icon} />
                         </Link>
                     </Fragment>
                 )

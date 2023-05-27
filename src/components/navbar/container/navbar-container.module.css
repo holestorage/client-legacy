@@ -1,0 +1,4 @@
+.container {
+    padding: 0 var(--theme-value-padding-main);
+    height: 100%;
+}

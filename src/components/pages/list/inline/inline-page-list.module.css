@@ -1,5 +1,6 @@
 .container {
     display: grid;
     grid-auto-flow: column;
+    width: min-content;
     gap: var(--theme-value-padding-small)
 }
