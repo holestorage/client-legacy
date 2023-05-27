@@ -10,7 +10,7 @@ const list = [
     {
         name: "Drive",
         icon: 'fa-regular fa-hard-drive',
-        path: '/drive'
+        path: '/app'
     },
     {
         name: "Plans",

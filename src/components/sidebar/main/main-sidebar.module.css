@@ -1,3 +1,3 @@
 .container {
-    padding: 0 var(--theme-value-padding-main);
+    padding: var(--theme-value-padding-main);
 }

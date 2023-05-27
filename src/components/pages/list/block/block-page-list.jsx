@@ -1,7 +1,8 @@
 import style from "./block-page-list.module.css";
 
-import IconButton from "../../../ui/button/icon/icon-button";
 import {Link} from "react-router-dom";
+
+import IconButton from "../../../ui/button/icon/icon-button";
 
 export default function BlockPageList({ list }) {
     return (

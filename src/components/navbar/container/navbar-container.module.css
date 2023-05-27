@@ -1,4 +1,8 @@
 .container {
-    padding: 0 var(--theme-value-padding-main);
     height: 100%;
+
+    display: grid;
+    align-items: center;
+
+    padding: var(--theme-value-padding-main) var(--theme-value-padding-large);
 }
