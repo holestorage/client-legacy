@@ -1,6 +1,7 @@
 import style from "./tool-list.module.css";
 
 import {Fragment} from "react";
+import ToolButton from "../../button/tool/tool-button";
 
 export default function ToolList({ section }) {
     return (
@@ -11,7 +12,7 @@ export default function ToolList({ section }) {
                         {
                             value.list.map((value, key) =>
                                 <Fragment key={key}>
-                                    <p></p>
+                                    <ToolButton icon={value.icon} />
                                 </Fragment>
                             )
                         }

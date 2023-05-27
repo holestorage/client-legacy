@@ -1,16 +1,19 @@
 import style from "./file.module.css";
+import ToolList from "../../tool/tool-list";
 
 export default function File({value}) {
-    const tools = [
+    const section = [
         {
             list: [
                 {
                     id: 'open',
-                    name: 'Open'
+                    name: 'Open',
+                    icon: 'fa-regular fa-file'
                 },
                 {
                     id: 'download',
-                    name: 'Download'
+                    name: 'Download',
+                    icon: 'fa-regular fa-arrow-down-to-line'
                 }
             ]
         },
@@ -18,11 +21,13 @@ export default function File({value}) {
             list: [
                 {
                     id: 'share',
-                    name: 'Share'
+                    name: 'Share',
+                    icon: 'fa-regular fa-user-group'
                 },
                 {
                     id: 'send',
-                    name: 'Send'
+                    name: 'Send',
+                    icon: 'fa-regular fa-mailbox'
                 }
             ]
         },
@@ -30,11 +35,13 @@ export default function File({value}) {
             list: [
                 {
                     id: 'pin',
-                    name: 'Pin'
+                    name: 'Pin',
+                    icon: 'fa-regular fa-star'
                 },
                 {
                     id: 'color',
-                    name: 'Color'
+                    name: 'Color',
+                    icon: 'fa-regular fa-paint-roller'
                 },
             ]
         },
@@ -42,15 +49,18 @@ export default function File({value}) {
             list: [
                 {
                     id: 'clone',
-                    name: 'Clone'
+                    name: 'Clone',
+                    icon: 'fa-regular fa-clone'
                 },
                 {
                     id: 'rename',
-                    name: 'Rename'
+                    name: 'Rename',
+                    icon: 'fa-regular fa-pen-to-square'
                 },
                 {
                     id: 'remove',
-                    name: 'Remove'
+                    name: 'Remove',
+                    icon: 'fa-regular fa-trash'
                 }
             ]
         }
@@ -62,9 +72,7 @@ export default function File({value}) {
             <p>{value.name}</p>
             <p>{value.date}</p>
             <p>{value.size}</p>
-            <div>
-                <p>tools</p>
-            </div>
+            <ToolList section={section} />
         </div>
     )
 }
