@@ -12,15 +12,17 @@ const category = [
             {
                 name: "Home",
                 icon: 'fa-regular fa-house-blank',
-                path: ''
+                path: '/app/'
             },
             {
                 name: "Photos",
-                icon: 'fa-regular fa-camera'
+                icon: 'fa-regular fa-camera',
+                path: 'photos'
             },
             {
                 name: "Pinned",
-                icon: 'fa-regular fa-bookmark'
+                icon: 'fa-regular fa-bookmark',
+                path: 'pinned'
             }
         ]
     },
@@ -28,11 +30,13 @@ const category = [
         list: [
             {
                 name: "Shared",
-                icon: 'fa-regular fa-user-plus'
+                icon: 'fa-regular fa-user-plus',
+                path: 'shared'
             },
             {
                 name: "Recent",
-                icon: 'fa-regular fa-clock'
+                icon: 'fa-regular fa-clock',
+                path: 'recent'
             }
         ]
     },
@@ -49,11 +53,13 @@ const category = [
         list: [
             {
                 name: "App",
-                icon: 'fa-regular fa-mobile'
+                icon: 'fa-regular fa-mobile',
+                path: 'mobile'
             },
             {
                 name: "Help Desk",
-                icon: 'fa-regular fa-book-blank'
+                icon: 'fa-regular fa-book-blank',
+                path: 'help'
             }
         ]
     }
