@@ -8,3 +8,7 @@
 
     width: 100%;
 }
+
+.button:hover {
+    background: var(--theme-palette-main-light);
+}

@@ -1,6 +1,6 @@
-import style from "./fallback.module.css";
+import style from "./container-content.module.css";
 
-export default function Fallback({ title, icon }) {
+export default function ContainerContent({ title, icon }) {
     return (
         <div className={style.container}>
             <i className={icon} />

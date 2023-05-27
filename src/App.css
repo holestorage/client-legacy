@@ -1,8 +1,9 @@
 :root {
     --theme-palette-main-head: #ffffff;
-    --theme-palette-main-light: #36373d;
     --theme-palette-main-color: #f6f5f3;
     --theme-palette-main-hover: #dedede;
+
+    --theme-palette-main-light: #eaeaea;
     --theme-palette-main-dark: #a6a6a6;
 
     --theme-brand-main-color: #0061fe;

@@ -3,12 +3,13 @@ import {Route, Routes, useLocation} from "react-router-dom";
 import SidebarLayout from "../../layout/sidebar-layout/sidebar-layout";
 import BoardPage from "../../pages/app/board-page";
 import MainCategory from "../../ui/category/main/main-category";
-import FilesFallback from "../../pages/fallback/pages/files-fallback";
-import TrashFallback from "../../pages/fallback/pages/trash-fallback";
+import FilesFallback from "../../pages/fallback/files-fallback";
+import TrashFallback from "../../pages/fallback/trash-fallback";
 import AppNavbar from "../../navbar/app/app-navbar";
 import MainSidebar from "../../sidebar/main/main-sidebar";
 import MainHead from "../../head/main/main-head";
-import PhotosFallback from "../../pages/fallback/pages/photos-fallback";
+import PhotosFallback from "../../pages/fallback/photos-fallback";
+import AppContainer from "../../navbar/container/content/app/app-container";
 
 const category = [
     {
@@ -81,6 +82,8 @@ export default function AppView() {
                 <Route path="/shared" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/recent" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>
+
+                <Route path="/mobile" element={<AppContainer />}/>
             </Routes>
         </SidebarLayout>
     )
