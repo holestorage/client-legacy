@@ -6,7 +6,9 @@ import AuthBanner from "../../auth/banner/auth-banner";
 export default function AppNavbar() {
     return (
         <div className={style.container}>
-            <SearchFilesInput />
+            <div className={style.content}>
+                <SearchFilesInput />
+            </div>
             <AuthBanner />
         </div>
     )

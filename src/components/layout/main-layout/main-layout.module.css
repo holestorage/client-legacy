@@ -14,6 +14,8 @@
 
 .header {
     background: var(--theme-palette-main-color);
-
     grid-column: 2 / 4;
+}
+
+.side {
 }
