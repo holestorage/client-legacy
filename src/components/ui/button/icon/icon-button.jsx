@@ -1,6 +1,6 @@
-import style from "./tool-icon.module.css";
+import style from "./icon-icon.module.css";
 
-export default function ToolButton({ icon, text }) {
+export default function IconButton({ icon, text }) {
     return (
         <button className={style.button}>
             <i className={icon} />

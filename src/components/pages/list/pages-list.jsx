@@ -1,4 +1,5 @@
 import InlinePageList from "./inline/inline-page-list";
+import BlockPageList from "./block/block-page-list";
 
 const list = [
     {
@@ -24,5 +25,5 @@ const list = [
 ]
 
 export default function PagesList({ inline }) {
-    return (inline ? <InlinePageList list={list} /> : <p></p>)
+    return (inline ? <InlinePageList list={list} /> : <BlockPageList list={list} />)
 }
