@@ -1,6 +1,7 @@
 import style from "./main-category.module.css";
 
-import {NavLink} from "react-router-dom";
+import MainTab from "../tab/main/main-tab";
+import {Fragment} from "react";
 
 export default function MainCategory({ list }) {
     return (
@@ -10,10 +11,9 @@ export default function MainCategory({ list }) {
                     <div key={key}>
                         {
                             section.list.map((value, key) =>
-                                <NavLink className={({ isActive }) => isActive ? style.active : style.element} to={value.path} key={key}>
-                                    <i className={value.icon} />
-                                    <p>{value.name}</p>
-                                </NavLink>
+                                <Fragment key={key}>
+                                    <MainTab text={value.name} icon={value.icon} path={value.path} />
+                                </Fragment>
                             )
                         }
                     </div>

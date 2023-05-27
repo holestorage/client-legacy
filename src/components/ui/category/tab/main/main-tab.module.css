@@ -1,0 +1,24 @@
+.element, .active {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: var(--theme-value-padding-small);
+    align-items: center;
+
+    padding: var(--theme-value-padding-small);
+
+    cursor: pointer;
+    border-radius: var(--theme-value-border_radius-min);
+}
+
+.element:hover {
+    background: var(--theme-palette-main-hover);
+}
+
+.active {
+    color: var(--theme-palette-font-color-main);
+    background: var(--theme-brand-main-color);
+}
+
+.active:hover {
+    background: var(--theme-brand-main-color-light);
+}
