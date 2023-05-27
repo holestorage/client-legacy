@@ -1,6 +1,6 @@
 import style from "./main-navbar.module.css";
 
-import MainNavbarPages from "./pages/main-navbar-pages";
+import PagesList from "../../pages/list/main-navbar-pages";
 
 export default function MainNavbar() {
     return (
@@ -8,7 +8,7 @@ export default function MainNavbar() {
             <div>
 
             </div>
-            <MainNavbarPages />
+            <PagesList />
             <div>
 
             </div>
