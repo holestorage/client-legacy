@@ -1,15 +1,6 @@
 import style from "./main-navbar.module.css";
 
-import {Fragment} from "react";
-import MainTab from "../../ui/category/tab/main/main-tab";
-
-const list = [
-    {
-        name: "Home",
-        icon: 'fa-regular fa-house-blank',
-        path: '/'
-    }
-]
+import MainNavbarPages from "./pages/main-navbar-pages";
 
 export default function MainNavbar() {
     return (
@@ -17,15 +8,7 @@ export default function MainNavbar() {
             <div>
 
             </div>
-            <div>
-                {
-                    list.map((value, key) =>
-                        <Fragment key={key}>
-                            <MainTab text={value.name} icon={value.icon} path={value.path} />
-                        </Fragment>
-                    )
-                }
-            </div>
+            <MainNavbarPages />
             <div>
 
             </div>
