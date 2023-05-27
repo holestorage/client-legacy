@@ -11,7 +11,7 @@ export default function File({value}) {
                 {
                     id: 'open',
                     name: 'Open',
-                    icon: 'fa-regular fa-file'
+                    icon: 'fa-regular fa-arrow-up-right-and-arrow-down-left-from-center'
                 },
                 {
                     id: 'download',
@@ -21,7 +21,6 @@ export default function File({value}) {
             ]
         },
         {
-            featured: true,
             list: [
                 {
                     id: 'share',
@@ -50,6 +49,7 @@ export default function File({value}) {
             ]
         },
         {
+            featured: true,
             list: [
                 {
                     id: 'clone',
