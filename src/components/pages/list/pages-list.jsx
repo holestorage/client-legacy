@@ -9,18 +9,23 @@ const list = [
     },
     {
         name: "Drive",
-        icon: 'fa-regular fa-house-blank',
+        icon: 'fa-regular fa-hard-drive',
         path: '/drive'
     },
     {
-        name: "Pricing",
-        icon: 'fa-regular fa-house-blank',
-        path: '/pricing'
+        name: "Plans",
+        icon: 'fa-regular fa-gear',
+        path: '/plans'
     },
     {
-        name: "About",
-        icon: 'fa-regular fa-house-blank',
-        path: '/about'
+        name: "Privacy",
+        icon: 'fa-regular fa-shield-check',
+        path: '/privacy'
+    },
+    {
+        name: "Account",
+        icon: 'fa-regular fa-user',
+        path: '/app/account'
     }
 ]
 

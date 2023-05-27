@@ -5,4 +5,6 @@
 
     padding: var(--theme-value-padding-main);
     border-radius: var(--theme-value-border_radius-min);
+
+    width: 100%;
 }
