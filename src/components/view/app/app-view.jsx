@@ -6,7 +6,6 @@ import MainCategory from "../../ui/category/main/main-category";
 import FilesFallback from "../../pages/fallback/pages/files-fallback";
 import TrashFallback from "../../pages/fallback/pages/trash-fallback";
 import AppNavbar from "../../navbar/app/app-navbar";
-import PagesList from "../../pages/list/pages-list";
 import MainSidebar from "../../sidebar/main/main-sidebar";
 import MainHead from "../../head/main/main-head";
 import PhotosFallback from "../../pages/fallback/pages/photos-fallback";

@@ -2,7 +2,8 @@
     height: 100%;
 
     display: grid;
-    gap: var(--theme-value-padding-large);
+    grid-template-rows: auto 1fr;
+    gap: var(--theme-value-padding-main);
     align-items: start;
 
     padding: var(--theme-value-padding-main);
