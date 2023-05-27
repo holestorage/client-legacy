@@ -1,7 +1,7 @@
-import ContainerContent from "../../navbar/container/content/container-content";
+import FullContainer from "../../ui/container/content/full-container";
 
 export default function TrashFallback() {
     return (
-        <ContainerContent title="No removed files yet..." />
+        <FullContainer title="No removed files yet..." />
     )
 }

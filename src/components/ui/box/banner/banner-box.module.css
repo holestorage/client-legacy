@@ -1,0 +1,4 @@
+.container {
+    background: var(--theme-brand-main-color);
+    color: var(--theme-palette-font-color-main);
+}

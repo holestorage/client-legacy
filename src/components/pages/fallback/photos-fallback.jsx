@@ -1,7 +1,7 @@
-import ContainerContent from "../../navbar/container/content/container-content";
+import FullContainer from "../../ui/container/content/full-container";
 
 export default function PhotosFallback() {
     return (
-        <ContainerContent title="No photos here..." />
+        <FullContainer title="No photos here..." />
     )
 }

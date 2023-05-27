@@ -1,7 +1,12 @@
+import PageContainer from "../ui/container/page/page-container";
+import BannerBox from "../ui/box/banner/banner-box";
+
 export default function HomePage() {
     return (
-        <div>
-            <h1>test</h1>
-        </div>
+        <PageContainer>
+            <BannerBox>
+                <h1>test</h1>
+            </BannerBox>
+        </PageContainer>
     )
 }

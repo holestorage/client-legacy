@@ -9,7 +9,8 @@ import AppNavbar from "../../navbar/app/app-navbar";
 import MainSidebar from "../../sidebar/main/main-sidebar";
 import MainHead from "../../head/main/main-head";
 import PhotosFallback from "../../pages/fallback/photos-fallback";
-import AppContainer from "../../navbar/container/content/app/app-container";
+import AppContainer from "../../ui/container/content/app/app-container";
+import NotFoundFallback from "../../pages/fallback/not-found-fallback";
 
 const category = [
     {
@@ -84,6 +85,8 @@ export default function AppView() {
                 <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>
 
                 <Route path="/mobile" element={<AppContainer />}/>
+
+                <Route path="/*" element={<NotFoundFallback />}/>
             </Routes>
         </SidebarLayout>
     )

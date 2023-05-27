@@ -1,6 +1,6 @@
-import style from "./container-content.module.css";
+import style from "./full-container.module.css";
 
-export default function ContainerContent({ title, icon }) {
+export default function FullContainer({ title, icon }) {
     return (
         <div className={style.container}>
             <i className={icon} />
