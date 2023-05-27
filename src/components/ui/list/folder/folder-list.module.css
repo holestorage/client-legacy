@@ -8,11 +8,8 @@
 }
 
 .container > div {
+    background: var(--theme-palette-main-hover);
     padding: var(--theme-value-padding-small) var(--theme-value-padding-main);
     border-radius: var(--theme-value-border_radius-min);
     cursor: pointer;
-}
-
-.container > div:hover {
-    background: var(--theme-palette-main-hover);
 }

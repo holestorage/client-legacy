@@ -3,10 +3,14 @@
     grid-template-columns: 1fr auto;
     gap: var(--theme-value-padding-main);
     align-items: center;
+
+    padding: var(--theme-value-padding-main) var(--theme-value-padding-large);
 }
 
 .container > div {
     display: grid;
     grid-auto-flow: column;
     gap: var(--theme-value-padding-small);
+
+    overflow: visible;
 }

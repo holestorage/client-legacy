@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    gap: var(--theme-value-padding-main)
+    gap: var(--theme-value-padding-main);
 }
 
 .container > div {
