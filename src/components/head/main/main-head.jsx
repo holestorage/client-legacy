@@ -1,9 +1,13 @@
+import style from "./main-head.module.css";
+
 import {Link} from "react-router-dom";
 
-export default function MainHead() {
+export default function MainHead({ app }) {
     return (
-        <Link to="/">
-            <p>BitLock</p>
-        </Link>
+        <div className={style.container}>
+            <Link to={app ? '/app/' : '/'}>
+                <p>BitLock</p>
+            </Link>
+        </div>
     )
 }

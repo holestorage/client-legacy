@@ -76,7 +76,7 @@ export default function AppView() {
     const location = useLocation();
 
     return (
-        <SideSidebarLayout header={<AppNavbar />} head={<MainHead />} side={<MainSidebar />} left={<MainCategory list={category} />}>
+        <SideSidebarLayout header={<AppNavbar app />} head={<MainHead />} side={<MainSidebar />} left={<MainCategory list={category} />}>
             <Routes location={location}>
                 <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/photos" element={<BoardPage fallback={<PhotosFallback />} />}/>

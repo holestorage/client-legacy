@@ -2,7 +2,6 @@
     height: 100%;
 
     display: grid;
-    align-items: center;
 
     padding: var(--theme-value-padding-main);
 }
