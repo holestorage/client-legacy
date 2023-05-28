@@ -2,7 +2,7 @@ import style from "./inline-page-list.module.css";
 
 import {Fragment} from "react";
 
-import MainTab from "../../../ui/category/tab/main/main-tab";
+import MainTab from "../../../../ui/category/tab/main/main-tab";
 
 export default function InlinePageList({ list }) {
     return (

@@ -1,8 +1,11 @@
 .container {
+    display: grid;
+    align-items: center;
+
     background: var(--theme-brand-main-color);
     color: var(--theme-palette-font-color-main);
     border-radius: var(--theme-value-border_radius-min);
-    padding: var(--theme-value-padding-large) var(--theme-value-padding-main);
+    padding: var(--theme-value-padding-large);
 }
 
 .content {

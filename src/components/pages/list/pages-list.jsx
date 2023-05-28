@@ -1,4 +1,4 @@
-import InlinePageList from "./inline/inline-page-list";
+import InlinePageList from "./grid/inline/inline-page-list";
 import BlockPageList from "./block/block-page-list";
 
 const list = [
