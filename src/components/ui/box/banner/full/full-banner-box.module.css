@@ -1,0 +1,11 @@
+.container {
+    display: grid;
+    align-items: center;
+    gap: var(--theme-value-padding-large);
+
+    background: var(--theme-brand-main-color);
+    color: var(--theme-palette-font-color-main);
+    padding: var(--theme-value-padding-max);
+
+    text-align: center;
+}
