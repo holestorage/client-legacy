@@ -11,6 +11,7 @@ import MainHead from "../../head/main/main-head";
 import PhotosFallback from "../../pages/fallback/photos-fallback";
 import AppContainer from "../../ui/container/content/app/app-container";
 import NotFoundFallback from "../../pages/fallback/not-found-fallback";
+import SideSidebarLayout from "../../layout/side-sidebar-layout/side-sidebar-layout";
 
 const category = [
     {
@@ -75,7 +76,7 @@ export default function AppView() {
     const location = useLocation();
 
     return (
-        <SidebarLayout header={<AppNavbar />} head={<MainHead />} side={<MainSidebar />} left={<MainCategory list={category} />}>
+        <SideSidebarLayout header={<AppNavbar />} head={<MainHead />} side={<MainSidebar />} left={<MainCategory list={category} />}>
             <Routes location={location}>
                 <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/photos" element={<BoardPage fallback={<PhotosFallback />} />}/>
@@ -88,6 +89,6 @@ export default function AppView() {
 
                 <Route path="/*" element={<NotFoundFallback />}/>
             </Routes>
-        </SidebarLayout>
+        </SideSidebarLayout>
     )
 }
