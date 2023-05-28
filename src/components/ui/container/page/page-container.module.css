@@ -1,9 +1,17 @@
 .container {
+    height: 90%;
+    margin: auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
     display: grid;
     gap: var(--theme-value-padding-main);
 
     padding: var(--theme-value-padding-main);
 
     width: 1200px;
-    margin: 0 auto;
 }
