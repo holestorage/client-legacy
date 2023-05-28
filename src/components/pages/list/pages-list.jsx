@@ -13,9 +13,9 @@ const list = [
         path: '/app/'
     },
     {
-        name: "Plans",
+        name: "Pricing",
         icon: 'fa-regular fa-gear',
-        path: '/plans'
+        path: '/pricing'
     },
     {
         name: "Privacy",
