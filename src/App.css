@@ -39,6 +39,18 @@ html, body, .App, #root {
 h1, h2, h3, p {
 }
 
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
 button {
     cursor: pointer;
     border: none;

@@ -2,7 +2,7 @@
     background: var(--theme-brand-main-color);
     color: var(--theme-palette-font-color-main);
     border-radius: var(--theme-value-border_radius-min);
-    padding: var(--theme-value-padding-big);
+    padding: var(--theme-value-padding-large) var(--theme-value-padding-main);
 }
 
 .content {
@@ -11,7 +11,7 @@
     text-align: center;
 
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .content > h1 {
