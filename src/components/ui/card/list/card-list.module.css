@@ -1,4 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
+    gap: var(--theme-value-padding-main);
+    justify-content: center;
 }
