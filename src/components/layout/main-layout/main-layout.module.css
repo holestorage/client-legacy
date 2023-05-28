@@ -1,31 +1,17 @@
 .container {
     display: grid;
     grid-template-rows: 60px 1fr;
-    grid-template-columns: 80px 1fr;
 
     height: 100vh;
 }
 
-.complete {
-    grid-template-columns: 1fr;
-}
-
-.head {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--theme-palette-main-color);
-}
-
 .header {
+    display: grid;
+    align-self: center;
+
     background: var(--theme-palette-main-color);
-    grid-column: 2 / 4;
 }
 
-.header, .head {
-    border-bottom: var(--theme-value-border-main);
-}
-
-.side {
+.content {
+    overflow-y: auto;
 }

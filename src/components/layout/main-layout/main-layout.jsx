@@ -1,28 +1,14 @@
 import style from "./main-layout.module.css";
 
-import {Fragment} from "react";
-
-export default function MainLayout({header, head, side, children}) {
+export default function MainLayout({ header, children }) {
     return (
-        <Fragment>
-            <div className={[side ?? style.complete, style.container].join(" ")}>
-                {
-                    head && <div className={style.head}>
-                        {head}
-                    </div>
-                }
-                <header className={style.header}>
-                    {header}
-                </header>
-                {
-                    side && <aside className={style.side}>
-                        {side}
-                    </aside>
-                }
-                <div>
-                    {children}
-                </div>
+        <div className={style.container}>
+            <header className={style.header}>
+                {header}
+            </header>
+            <div className={style.content}>
+                {children}
             </div>
-        </Fragment>
+        </div>
     )
 }
