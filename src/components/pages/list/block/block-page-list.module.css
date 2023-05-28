@@ -2,3 +2,12 @@
     display: grid;
     gap: var(--theme-value-padding-small)
 }
+
+.active > button {
+    color: var(--theme-palette-font-color-main);
+    background: var(--theme-brand-main-color);
+}
+
+.active > button:hover {
+    background: var(--theme-brand-main-color-light);
+}

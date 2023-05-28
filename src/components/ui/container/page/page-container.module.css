@@ -1,6 +1,9 @@
 .container {
-    width: 1200px;
-    margin: 0 auto;
+    display: grid;
+    gap: var(--theme-value-padding-main);
 
     padding: var(--theme-value-padding-main);
+
+    width: 1200px;
+    margin: 0 auto;
 }
