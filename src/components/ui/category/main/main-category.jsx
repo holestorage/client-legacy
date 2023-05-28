@@ -1,6 +1,7 @@
 import style from "./main-category.module.css";
 
 import {Fragment} from "react";
+
 import SlimTab from "../tab/slim/slim-tab";
 
 export default function MainCategory({ list }) {

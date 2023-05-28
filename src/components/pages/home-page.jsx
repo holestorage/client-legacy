@@ -5,7 +5,9 @@ export default function HomePage() {
     return (
         <PageContainer>
             <BannerBox>
-                <h1>test</h1>
+                <h1>Encrypt. Protect. Control.</h1>
+                <h3>Your files encrypted with a passkey stored only on your device for ultimate security and privacy.
+                    Access and control your data like never before.</h3>
             </BannerBox>
         </PageContainer>
     )

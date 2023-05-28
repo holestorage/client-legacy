@@ -19,6 +19,7 @@
     --theme-value-padding-main: 14px;
     --theme-value-padding-big: 20px;
     --theme-value-padding-large: 40px;
+    --theme-value-padding-max: 140px;
 
     --theme-value-border-main: 1px solid var(--theme-palette-main-dark);
 }
