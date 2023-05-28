@@ -5,6 +5,9 @@
 }
 
 .content {
+    height: 100%;
+
     display: grid;
+    grid-template-rows: 1fr auto;
     gap: var(--theme-value-padding-main);
 }
