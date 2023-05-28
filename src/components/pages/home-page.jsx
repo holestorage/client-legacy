@@ -45,7 +45,7 @@ export default function HomePage() {
             <PageContainer>
                 <InlineBoxGrid>
                     <BannerBox>
-                        <h2>Unleash the Speed of Distributed Storage.</h2>
+                        <h2>Unleash the speed of distributed storage.</h2>
                         <h3>Files are fragmented into small fractions and stored and distributed with redundancy among
                             hundreds of servers around the world.</h3>
                     </BannerBox>
@@ -96,6 +96,39 @@ export default function HomePage() {
                         </MainBox>
                     </InlineBoxGrid>
                 </InlineBoxGrid>
+            </PageContainer>
+            <PageContainer>
+                <InlineBoxGrid>
+                    <BannerBox>
+                        <h2>Share</h2>
+                        <h3>Share files in the simplest and most secure way you've ever seen.</h3>
+                    </BannerBox>
+                    <BlockBoxGrid>
+                        <MainBox>
+                            <h3>Password encryption</h3>
+                            <h3>Add an extra layer of security by encrypting the files with a password, and you can even
+                                add a hint that only you and the recipient know.</h3>
+                        </MainBox>
+                        <MainBox>
+                            <h3>Set your rules</h3>
+                            <h3>You can specify that only one person can download the file, and once downloaded, the
+                                transfer will be completely destroyed from our servers.
+                            </h3>
+                        </MainBox>
+                        <MainBox>
+                            <h3>No limits</h3>
+                            <h3>Make as many transfers of up to 2GB of content as you want. No limits, no registration,
+                                no ads, no spies.</h3>
+                        </MainBox>
+                    </BlockBoxGrid>
+                </InlineBoxGrid>
+            </PageContainer>
+            <PageContainer>
+                <BannerBox>
+                    <h2>Get started.</h2>
+                    <h3>Create an account with just one click, completely free - no, really, give it a try, it's magical.</h3>
+                    <MainButton text="Get started"/>
+                </BannerBox>
             </PageContainer>
         </Fragment>
     )
