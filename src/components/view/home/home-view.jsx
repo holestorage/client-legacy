@@ -1,5 +1,4 @@
 import {Route, Routes, useLocation} from "react-router-dom";
-import {Fragment} from "react";
 
 import MainLayout from "../../layout/main-layout/main-layout";
 import HomePage from "../../pages/home-page";
@@ -10,7 +9,7 @@ export default function HomeView() {
     const location = useLocation();
 
     return (
-        <MainLayout header={<MainNavbar />} head={<MainHead />} side={<Fragment></Fragment>}>
+        <MainLayout header={<MainNavbar />} head={<MainHead />}>
             <Routes location={location}>
                 <Route path="/" element={<HomePage/>}/>
             </Routes>

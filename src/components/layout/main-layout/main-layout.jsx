@@ -5,10 +5,12 @@ import {Fragment} from "react";
 export default function MainLayout({header, head, side, children}) {
     return (
         <Fragment>
-            <div className={style.container}>
-                <div className={style.head}>
-                    {head}
-                </div>
+            <div className={[side ?? style.complete, style.container].join(" ")}>
+                {
+                    head && <div className={style.head}>
+                        {head}
+                    </div>
+                }
                 <header className={style.header}>
                     {header}
                 </header>

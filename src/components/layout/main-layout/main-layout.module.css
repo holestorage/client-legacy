@@ -6,6 +6,10 @@
     height: 100vh;
 }
 
+.complete {
+    grid-template-columns: 1fr;
+}
+
 .head {
     display: flex;
     align-items: center;
