@@ -11,9 +11,9 @@
 }
 
 .element:hover {
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
 }
 
 .active {
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
 }

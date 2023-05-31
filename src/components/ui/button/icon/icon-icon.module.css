@@ -8,9 +8,9 @@
 
     width: 100%;
 
-    background: var(--theme-palette-main-dark);
+    background: var(--theme-palette-main-medium);
 }
 
 .button:hover {
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-light-hover);
 }

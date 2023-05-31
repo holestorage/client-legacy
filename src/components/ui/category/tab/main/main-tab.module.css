@@ -9,7 +9,7 @@
     cursor: pointer;
     border-radius: var(--theme-value-border_radius-max);
 
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
 }
 
 .active {

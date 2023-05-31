@@ -8,7 +8,7 @@
 }
 
 .container > div {
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
     padding: var(--theme-value-padding-small) var(--theme-value-padding-main);
     border-radius: var(--theme-value-border_radius-min);
     cursor: pointer;

@@ -3,8 +3,10 @@
 :root {
     --theme-palette-main-dark: #141414;
     --theme-palette-main-main: #1f1f1f;
-    --theme-palette-main-light: #313131;
-    --theme-palette-main-hover: #3a3a3a;
+    --theme-palette-main-medium: #313131;
+    --theme-palette-main-medium-hover: #3a3a3a;
+    --theme-palette-main-light: #343434;
+    --theme-palette-main-light-hover: #4d4d4d;
 
     --theme-palette-main-color: #161617;
 
@@ -27,14 +29,15 @@
     --theme-value-font_size-small: 6px;
     --theme-value-font_size-main: 14px;
 
-    --theme-value-padding-small: 6px;
-    --theme-value-padding-medium: 8px;
-    --theme-value-padding-main: 10px;
+    --theme-value-padding-min: 5px;
+    --theme-value-padding-small: 8px;
+    --theme-value-padding-medium: 10px;
+    --theme-value-padding-main: 12px;
     --theme-value-padding-big: 40px;
     --theme-value-padding-large: 60px;
     --theme-value-padding-max: 140px;
 
-    --theme-value-transition-main: .1s;
+    --theme-value-transition-main: .15s ease;
 }
 
 html, body, .App, #root {
@@ -86,8 +89,8 @@ button {
     font: inherit;
 }
 
-* {
-    transition: var(--theme-value-transition-main);
+button {
+    transition: background-color var(--theme-value-transition-main);
 }
 
 input {

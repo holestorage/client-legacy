@@ -8,5 +8,5 @@
     gap: var(--theme-value-padding-large);
     align-items: center;
 
-    padding: var(--theme-value-padding-small) var(--theme-value-padding-large);
+    padding: var(--theme-value-padding-min) var(--theme-value-padding-large);
 }

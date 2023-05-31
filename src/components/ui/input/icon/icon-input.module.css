@@ -4,7 +4,7 @@
     gap: var(--theme-value-padding-main);
     align-items: center;
 
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
     padding: var(--theme-value-padding-main);
     border-radius: var(--theme-value-border_radius-min);
 }

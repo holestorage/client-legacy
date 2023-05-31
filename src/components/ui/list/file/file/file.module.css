@@ -4,7 +4,7 @@
 }
 
 .container:hover {
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
 }
 
 .container .content {

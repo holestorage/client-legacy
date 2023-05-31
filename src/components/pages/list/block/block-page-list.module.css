@@ -5,5 +5,5 @@
 
 .active > button {
     color: var(--theme-palette-font-color-main);
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
 }

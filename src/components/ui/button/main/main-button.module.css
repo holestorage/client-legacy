@@ -1,9 +1,9 @@
 .button {
-    background: var(--theme-palette-main-light);
+    background: var(--theme-palette-main-medium);
     padding: var(--theme-value-padding-main) var(--theme-value-padding-big);
     border-radius: var(--theme-value-border_radius-min);
 }
 
 .button:hover {
-    background: var(--theme-palette-main-hover);
+    background: var(--theme-palette-main-medium-hover);
 }
