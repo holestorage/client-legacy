@@ -14,9 +14,9 @@
 
 .active {
     color: var(--theme-palette-font-color-main);
-    background: var(--theme-brand-main-color);
+    background: var(--theme-palette-main-dark);
 }
 
 .active:hover {
-    background: var(--theme-brand-main-color-light);
+    background: var(--theme-palette-main-dark);
 }

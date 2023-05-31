@@ -1,30 +1,49 @@
+@import url('https://v1.fontapi.ir/css/SFProDisplay');
+
 :root {
-    --theme-palette-main-head: #ffffff;
-    --theme-palette-main-color: #f6f5f3;
-    --theme-palette-main-hover: #dedede;
+    --theme-palette-main-dark: #141414;
+    --theme-palette-main-main: #1f1f1f;
+    --theme-palette-main-hover: #3a3a3a;
 
-    --theme-palette-main-light: #eaeaea;
-    --theme-palette-main-dark: #a6a6a6;
+    --theme-palette-main-color: #161617;
 
-    --theme-brand-main-color: #0061fe;
-    --theme-brand-main-color-light: #2d82ff;
+    --theme-palette-brand-gradient-main: linear-gradient(270deg, rgb(120, 142, 239) 0%, rgba(158,205,241,1) 100%);
 
-    --theme-palette-font-color-main: white;
+    --theme-palette-brand-color-main: #429cea;
+    --theme-palette-brand-color-light: #52a0e7;
+
+    --theme-palette-main-light: #ffffff;
+    --theme-palette-main-light-hover: #d0d0d0;
+
+    --theme-palette-font-color-title: white;
+    --theme-palette-font-color-main: black;
+
+    --theme-value-icon-big: 30px;
 
     --theme-value-border_radius-min: 8px;
     --theme-value-border_radius-max: 999px;
 
+    --theme-value-max_width-main: 300px;
+    --theme-value-max_width-full: 1200px;
+
+    --theme-value-font_size-small: 6px;
+    --theme-value-font_size-main: 14px;
+
     --theme-value-padding-small: 6px;
-    --theme-value-padding-medium: 10px;
-    --theme-value-padding-main: 14px;
-    --theme-value-padding-big: 20px;
-    --theme-value-padding-large: 40px;
+    --theme-value-padding-medium: 8px;
+    --theme-value-padding-main: 10px;
+    --theme-value-padding-big: 40px;
+    --theme-value-padding-large: 60px;
     --theme-value-padding-max: 140px;
 
-    --theme-value-border-main: 1px solid var(--theme-palette-main-dark);
+    --theme-value-transition-main: .1s;
 }
 
 html, body, .App, #root {
+    font-family: 'SF Pro Display', sans-serif;
+
+    background: var(--theme-palette-main-main);
+
     height: 100vh;
     width: 100vw;
 
@@ -36,7 +55,14 @@ html, body, .App, #root {
     box-sizing: border-box;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, h4 {
+    color: var(--theme-palette-font-color-title);
+}
+
+h1, h2 {
+    background: var(--theme-palette-brand-gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 h1 {
@@ -49,11 +75,27 @@ h2 {
 
 h3 {
     font-size: 28px;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 button {
     cursor: pointer;
     border: none;
+    font: inherit;
+}
+
+button {
+    transition: var(--theme-value-transition-main);
 }
 
 input {
@@ -96,4 +138,22 @@ a {
 
 #undraggable {
     -webkit-user-drag: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--theme-palette-main-dark-light);
+}
+
+::selection {
+    -webkit-text-fill-color: var(--theme-palette-font-color-title);
+    background: var(--theme-palette-brand-color-main);
 }
