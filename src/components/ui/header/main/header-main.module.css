@@ -1,10 +1,15 @@
 .container {
     display: grid;
+    gap: var(--theme-value-padding-main);
+}
+
+.content {
+    display: grid;
     grid-template-columns: 1fr auto;
     gap: var(--theme-value-padding-main);
 }
 
-.container > div {
+.content > div {
     display: grid;
     grid-auto-flow: column;
     gap: var(--theme-value-padding-small);
