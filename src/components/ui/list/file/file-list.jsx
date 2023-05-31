@@ -9,7 +9,7 @@ export default function FileList({ list }) {
     const sections = [
         {
             id: 'file',
-            name: 'File'
+            name: null
         },
         {
             id: 'name',

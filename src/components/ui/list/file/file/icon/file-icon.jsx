@@ -1,4 +1,6 @@
-export default function FileIcon({type}) {
+import style from "./file-icon.module.css";
+
+export default function FileIcon({ type }) {
     const value = {
         fallback: {
             icon: 'fa-light fa-file'
@@ -64,6 +66,6 @@ export default function FileIcon({type}) {
     }
 
     return (
-        <i className={value.types.list.find((value) => value.list.some((item) => item.mimetype === type))?.icon || 'fa-regular fa-file'} />
+        <i className={[value.types.list.find((value) => value.list.some((item) => item.mimetype === type))?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
     )
 }
