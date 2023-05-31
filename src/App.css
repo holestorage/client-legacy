@@ -146,10 +146,15 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--theme-palette-main-dark-light);
+    background: var(--theme-palette-main-dark);
 }
 
 ::selection {
     -webkit-text-fill-color: var(--theme-palette-font-color-title);
     background: var(--theme-palette-brand-color-main);
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--theme-palette-main-medium);
 }
