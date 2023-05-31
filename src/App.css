@@ -3,6 +3,7 @@
 :root {
     --theme-palette-main-dark: #141414;
     --theme-palette-main-main: #1f1f1f;
+    --theme-palette-main-light: #313131;
     --theme-palette-main-hover: #3a3a3a;
 
     --theme-palette-main-color: #161617;
@@ -12,15 +13,12 @@
     --theme-palette-brand-color-main: #429cea;
     --theme-palette-brand-color-light: #52a0e7;
 
-    --theme-palette-main-light: #ffffff;
-    --theme-palette-main-light-hover: #d0d0d0;
-
     --theme-palette-font-color-title: white;
     --theme-palette-font-color-main: black;
 
     --theme-value-icon-big: 30px;
 
-    --theme-value-border_radius-min: 8px;
+    --theme-value-border_radius-min: 4px;
     --theme-value-border_radius-max: 999px;
 
     --theme-value-max_width-main: 300px;
@@ -55,14 +53,8 @@ html, body, .App, #root {
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p, i, button {
     color: var(--theme-palette-font-color-title);
-}
-
-h1, h2 {
-    background: var(--theme-palette-brand-gradient-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 h1 {
@@ -94,7 +86,7 @@ button {
     font: inherit;
 }
 
-button {
+* {
     transition: var(--theme-value-transition-main);
 }
 

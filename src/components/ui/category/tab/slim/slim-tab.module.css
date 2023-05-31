@@ -8,8 +8,6 @@
 
     cursor: pointer;
     border-radius: var(--theme-value-border_radius-min);
-
-    color: var(--theme-palette-font-color-title);
 }
 
 .element:hover {
