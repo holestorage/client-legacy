@@ -1,0 +1,16 @@
+.container {
+    border-radius: var(--theme-value-border_radius-min);
+    cursor: pointer;
+}
+
+.container:hover {
+    background: var(--theme-palette-main-medium-hover);
+}
+
+.container .content {
+    visibility: hidden;
+}
+
+.container:hover .content {
+    visibility: visible;
+}

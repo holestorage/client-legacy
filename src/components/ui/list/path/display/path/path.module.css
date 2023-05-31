@@ -1,0 +1,15 @@
+.container {
+    height: 100%;
+
+    display: grid;
+    align-items: center;
+
+    background: var(--theme-palette-main-light);
+    padding: var(--theme-value-padding-small) var(--theme-value-padding-main);
+    border-radius: var(--theme-value-border_radius-min);
+    cursor: pointer;
+}
+
+.container:hover {
+    background: var(--theme-palette-main-light-hover);
+}

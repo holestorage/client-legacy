@@ -1,10 +1,6 @@
 .container {
-    height: 100%;
-
     display: grid;
-    grid-template-rows: auto 1fr;
-    gap: var(--theme-value-padding-main);
-    align-items: start;
+    gap: var(--theme-value-padding-big);
 
     padding: var(--theme-value-padding-main);
 }

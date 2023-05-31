@@ -96,6 +96,7 @@ button {
 input {
     background: none;
     border: none;
+    font: inherit;
 }
 
 input:focus {

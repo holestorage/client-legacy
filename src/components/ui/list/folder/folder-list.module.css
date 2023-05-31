@@ -1,15 +1,12 @@
 .container {
-    width: max-content;
-
     display: grid;
-    grid-auto-flow: column;
-    gap: var(--theme-value-padding-main);
-    align-items: center;
 }
 
 .container > div {
-    background: var(--theme-palette-main-medium-hover);
-    padding: var(--theme-value-padding-small) var(--theme-value-padding-main);
-    border-radius: var(--theme-value-border_radius-min);
-    cursor: pointer;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px 40px 250px;
+    gap: var(--theme-value-padding-large);
+    align-items: center;
+
+    padding: var(--theme-value-padding-min) var(--theme-value-padding-large);
 }
