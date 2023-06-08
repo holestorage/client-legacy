@@ -6,10 +6,15 @@
     padding: var(--theme-value-padding-main);
     border-radius: var(--theme-value-border_radius-min);
 
+    background: none;
+
     width: 100%;
-    background: var(--theme-palette-main-medium);
 }
 
-.button:hover {
-    background: var(--theme-palette-main-light-hover);
+.button > i {
+    color: var(--theme-palette-main-white-main);
+}
+
+.button:hover > i {
+    color: var(--theme-palette-main-white-main-hover);
 }

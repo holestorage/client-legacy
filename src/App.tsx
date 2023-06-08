@@ -4,7 +4,7 @@ import {Route, Routes, useLocation} from "react-router-dom";
 
 import AppView from "./components/view/app/app-view";
 
-const axios = require('axios');
+import axios from 'axios';
 
 export const HoleApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/',

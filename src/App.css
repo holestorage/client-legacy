@@ -8,6 +8,9 @@
     --theme-palette-main-light: #343434;
     --theme-palette-main-light-hover: #4d4d4d;
 
+    --theme-palette-main-white-main: white;
+    --theme-palette-main-white-main-hover: #bdbdbd;
+
     --theme-palette-main-color: #161617;
 
     --theme-palette-brand-gradient-main: linear-gradient(270deg, rgb(120, 142, 239) 0%, rgba(158,205,241,1) 100%);
