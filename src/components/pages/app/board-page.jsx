@@ -48,8 +48,8 @@ export default function BoardPage({ fallback }) {
         <Container>
             <HeaderMain left={
                 <Fragment>
-                    <MainButton text="Upload file" />
-                    <MainButton text="Create folder" />
+                    <MainButton icon="fa-regular fa-angle-up" text="Upload file" />
+                    <MainButton icon="fa-regular fa-folder" text="Create folder" />
                 </Fragment>
             }>
                 <PathDisplay list={[{name: "Drive"}, {name: "Family"}]} />
