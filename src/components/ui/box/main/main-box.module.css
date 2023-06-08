@@ -1,7 +1,7 @@
 .container {
     background: var(--theme-palette-main-medium-hover);
     border-radius: var(--theme-value-border_radius-min);
-    padding: var(--theme-value-padding-big);
+    padding: var(--theme-value-padding-main);
 }
 
 .content {

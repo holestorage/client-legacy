@@ -1,6 +1,5 @@
 import {Route, Routes, useLocation} from "react-router-dom";
 
-import SidebarLayout from "../../layout/sidebar-layout/sidebar-layout";
 import BoardPage from "../../pages/app/board-page";
 import MainCategory from "../../ui/category/main/main-category";
 import FilesFallback from "../../pages/fallback/files-fallback";
@@ -84,6 +83,8 @@ export default function AppView() {
                 <Route path="/shared" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/recent" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>
+
+                <Route path="/mobile" element={<AppContainer />}/>
 
                 <Route path="/mobile" element={<AppContainer />}/>
 

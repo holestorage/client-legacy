@@ -1,8 +1,6 @@
 import './App.css';
 
-import {Route, Routes, useLocation} from "react-router-dom";
-
-import AppView from "./components/view/app/app-view";
+import MainView from "./components/view/app/main-view";
 
 import axios from 'axios';
 
@@ -15,13 +13,9 @@ export const HoleApi = axios.create({
 });
 
 function App() {
-    const location = useLocation();
-
     return (
         <div className="App">
-            <Routes location={location}>
-                <Route path="/app/*" element={<AppView/>} />
-            </Routes>
+            <MainView/>
         </div>
     );
 }
