@@ -21,7 +21,7 @@
     --theme-palette-font-color-title: white;
     --theme-palette-font-color-main: black;
 
-    --theme-value-icon-big: 30px;
+    --theme-value-icon-big: 50px;
 
     --theme-value-border_radius-min: 4px;
     --theme-value-border_radius-max: 999px;
@@ -119,6 +119,14 @@ textarea:focus {
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+a {
+    color: var(--theme-palette-brand-color-main);
+}
+
+a:hover {
+    color: var(--theme-palette-brand-color-light);
 }
 
 #unselectable {

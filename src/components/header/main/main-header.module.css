@@ -1,0 +1,7 @@
+.container {
+    background: var(--theme-palette-main-light);
+    border-radius: var(--theme-value-border_radius-min);
+    padding: var(--theme-value-padding-big);
+
+    font-size: var(--theme-value-icon-big);
+}

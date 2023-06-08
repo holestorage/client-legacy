@@ -1,12 +1,15 @@
 .container {
-    background: var(--theme-palette-main-medium-hover);
+    background: var(--theme-palette-main-dark);
     border-radius: var(--theme-value-border_radius-min);
     padding: var(--theme-value-padding-main);
+
+    min-width: 400px;
 }
 
 .content {
     height: 100%;
 
+    text-align: center;
     display: grid;
     grid-template-rows: 1fr auto;
     gap: var(--theme-value-padding-main);

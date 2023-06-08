@@ -10,6 +10,8 @@
     align-self: center;
 
     background: var(--theme-palette-main-color);
+
+    border-bottom: 1px solid var(--theme-palette-main-dark);
 }
 
 .content {
