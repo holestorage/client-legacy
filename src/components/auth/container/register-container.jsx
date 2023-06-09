@@ -15,7 +15,9 @@ export default function RegisterContainer({ config }) {
         const response = await HoleApi.post('user', new URLSearchParams({ username: username, name: name, email: email }));
         const key = await navigator.credentials.create({ publicKey: config });
 
-        await HoleApi.post('key', new URLSearchParams({ attempt: response.data.attempt.key, id: key.id, key: key.rawId }));
+        const keyRaw = String.fromCharCode.apply(null, new Uint8Array(key.response.attestationObject));
+
+        await HoleApi.post('key', new URLSearchParams({ attempt: response.data.attempt.key, id: key.id, key: keyRaw }));
     }
 
     return (
