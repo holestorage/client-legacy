@@ -1,10 +1,10 @@
 import style from "./icon-input.module.css";
 
-export default function IconInput({ text, icon }) {
+export default function IconInput(props) {
     return (
         <div className={style.container}>
-            <input placeholder={text} />
-            <i className={icon} />
+            <input { ...props } />
+            <i className={props.icon} />
         </div>
     )
 }

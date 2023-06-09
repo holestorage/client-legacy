@@ -4,7 +4,7 @@ import NotFoundFallback from "../../pages/fallback/not-found-fallback";
 import LoginContainer from "../../auth/container/login-container";
 import RegisterContainer from "../../auth/container/register-container";
 
-const keyConfig = {
+const config = {
     challenge: new Uint8Array(['ailakks']),
     rp: {
         name: "Example",
@@ -28,21 +28,13 @@ const keyConfig = {
     }
 };
 
-const register = async () => {
-    await navigator.credentials.create({ publicKey: keyConfig });
-}
-
-const login = async () => {
-    await navigator.credentials.get({ publicKey: keyConfig });
-}
-
 export default function AuthView() {
     const location = useLocation();
 
     return (
         <Routes location={location}>
-            <Route path="/login" element={<LoginContainer action={login} />}/>
-            <Route path="/register" element={<RegisterContainer action={register} />}/>
+            <Route path="/login" element={<LoginContainer config={config} />}/>
+            <Route path="/register" element={<RegisterContainer config={config} />}/>
 
             <Route path="/*" element={<NotFoundFallback />}/>
         </Routes>

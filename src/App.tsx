@@ -8,8 +8,8 @@ export const HoleApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/',
     timeout: 1000,
     headers: {
-
-    }
+        'content-type': 'application/x-www-form-urlencoded'
+    },
 });
 
 function App() {
