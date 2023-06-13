@@ -27,8 +27,9 @@ export default function RegisterContainer({config}) {
         const response = await HoleApi.post('key', {
             attempt: data.attempt.key,
             id: key.id,
-            key: key.attestationObject
+            key: key.response.attestationObject
         });
+
     }
 
     return (
