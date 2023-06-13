@@ -5,8 +5,11 @@ import IconInput from "../../ui/input/icon/icon-input";
 import {HoleApi} from "../../../App";
 import {useState} from "react";
 import MainButton from "../../ui/button/main/main-button";
+import {useCookies} from "react-cookie";
 
 export default function RegisterContainer({config}) {
+    const [token, setToken, removeToken] = useCookies(['token']);
+
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,22 +17,25 @@ export default function RegisterContainer({config}) {
     const register = async (event) => {
         event.preventDefault();
 
-        const { data } = await HoleApi.post('user', {
+        const account = await (await HoleApi.post('user', {
             username: username,
             name: name,
             email: email
-        });
+        })).data;
 
         const key = await navigator.credentials.create({
-            publicKey: await config(data.id)
+            publicKey: await config(account.id)
         });
 
-        const response = await HoleApi.post('key', {
-            attempt: data.attempt.key,
+        const publicKey = btoa(String.fromCharCode.apply(null, new Uint8Array(key.response.getPublicKey())));
+
+        const login = await (await HoleApi.post('key', {
+            attempt: account.attempt.key,
             id: key.id,
-            key: key.response.attestationObject
-        });
+            key: publicKey
+        })).data;
 
+        setToken(login.token);
     }
 
     return (

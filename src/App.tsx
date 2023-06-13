@@ -11,7 +11,7 @@ export const HoleApi = axios.create({
     headers: {
         'content-type': 'application/x-www-form-urlencoded'
     },
-    paramsSerializer: (params) => qs.stringify(params),
+    paramsSerializer: (params) => qs.stringify(params)
 });
 
 function App() {
