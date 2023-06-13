@@ -21,7 +21,7 @@ export default function RegisterContainer({config}) {
         });
 
         const key = await navigator.credentials.create({
-            publicKey: config
+            publicKey: await config(data.id)
         });
 
         const response = await HoleApi.post('key', {
