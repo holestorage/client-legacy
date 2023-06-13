@@ -4,8 +4,9 @@ import IconInput from "../../ui/input/icon/icon-input";
 
 import {HoleApi} from "../../../App";
 import {useState} from "react";
+import MainButton from "../../ui/button/main/main-button";
 
-export default function RegisterContainer({ config }) {
+export default function RegisterContainer({config}) {
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -13,17 +14,21 @@ export default function RegisterContainer({ config }) {
     const register = async (event) => {
         event.preventDefault();
 
-        const response = await HoleApi.post('user', {
+        const { data } = await HoleApi.post('user', {
             username: username,
             name: name,
             email: email
         });
 
-        const key = await navigator.credentials.create({ publicKey: config });
+        const key = await navigator.credentials.create({
+            publicKey: config
+        });
 
-        const keyRaw = String.fromCharCode.apply(null, new Uint8Array(key.response.attestationObject));
-
-        await HoleApi.post('key', { attempt: response.data.attempt.key, id: key.id, key: keyRaw });
+        const response = await HoleApi.post('key', {
+            attempt: data.attempt.key,
+            id: key.id,
+            key: key.attestationObject
+        });
     }
 
     return (
@@ -31,10 +36,13 @@ export default function RegisterContainer({ config }) {
             <MainBox>
                 <h4>Register</h4>
                 <form onSubmit={register}>
-                    <IconInput placeholder="Username" type="text" value={username} onChange={ (value) => setUsername(value.target.value) } />
-                    <IconInput placeholder="Name" type="text" value={name} onChange={ (value) => setName(value.target.value) } />
-                    <IconInput placeholder="Email" type="email" value={email} onChange={ (value) => setEmail(value.target.value) }  />
-                    <input type="submit" onSubmit={() => register} />
+                    <IconInput placeholder="Username" type="text" value={username}
+                               onChange={(value) => setUsername(value.target.value)}/>
+                    <IconInput placeholder="Name" type="text" value={name}
+                               onChange={(value) => setName(value.target.value)}/>
+                    <IconInput placeholder="Email" type="email" value={email}
+                               onChange={(value) => setEmail(value.target.value)}/>
+                    <MainButton text="Register" submit={register} />
                 </form>
                 <p>Do you already have an account? <a href="/auth/login">Login</a></p>
             </MainBox>

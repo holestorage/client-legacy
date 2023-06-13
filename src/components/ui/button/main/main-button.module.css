@@ -7,6 +7,8 @@
     background: var(--theme-palette-main-medium);
     padding: var(--theme-value-padding-main) var(--theme-value-padding-big);
     border-radius: var(--theme-value-border_radius-min);
+
+    cursor: pointer;
 }
 
 .button:hover {
