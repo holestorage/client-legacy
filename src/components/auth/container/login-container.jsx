@@ -3,21 +3,23 @@ import MainBox from "../../ui/box/main/main-box";
 import MainButton from "../../ui/button/main/main-button";
 import MainHeader from "../../header/main/main-header";
 import {HoleApi} from "../../../App";
+
 import {useCookies} from "react-cookie";
+import {get} from "@github/webauthn-json/browser-ponyfill";
 
 export default function LoginContainer({ config }) {
     const [token, setToken, removeToken] = useCookies(['token']);
 
     const login = async () => {
-        const key = await navigator.credentials.get({
+        const credential = await get({
             publicKey: await config()
         });
 
-        const publicKey = btoa(String.fromCharCode.apply(null, new Uint8Array(key.response.getPublicKey())));
+        const key = JSON.stringify(credential);
 
-        const login = await (await HoleApi.post('login', {
-            id: key.id,
-            key: publicKey
+        const login = await (await HoleApi.post('user/login', {
+            id: credential.id,
+            key: key
         })).data;
 
         setToken(login.token);

@@ -27,7 +27,9 @@ export default function RegisterContainer({config}) {
             publicKey: await config(account.id)
         });
 
-        const publicKey = btoa(String.fromCharCode.apply(null, new Uint8Array(key.response.getPublicKey())));
+        console.log(key)
+        const publicKey = btoa(String.fromCharCode.apply(null, new Uint8Array(key.response)));
+        console.log(publicKey)
 
         const login = await (await HoleApi.post('key', {
             attempt: account.attempt.key,
