@@ -2,6 +2,7 @@ import './App.css';
 
 import MainView from "./components/view/app/main-view";
 
+import * as qs from "qs";
 import axios from 'axios';
 
 export const HoleApi = axios.create({
@@ -10,6 +11,7 @@ export const HoleApi = axios.create({
     headers: {
         'content-type': 'application/x-www-form-urlencoded'
     },
+    paramsSerializer: (params) => qs.stringify(params),
 });
 
 function App() {
