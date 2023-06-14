@@ -5,6 +5,8 @@ import MainButton from "../../ui/button/main/main-button";
 
 import {useState} from "react";
 import {HoleApi} from "../../../App";
+import {useNavigate } from 'react-router-dom';
+
 import {useCookies} from "react-cookie";
 
 const Access = {
@@ -13,6 +15,8 @@ const Access = {
 };
 
 export default function RegisterContainer() {
+    const navigate = useNavigate();
+
     const [access, setAccess] = useState(null);
 
     const [token, setToken, removeToken] = useCookies(['token']);
@@ -21,6 +25,7 @@ export default function RegisterContainer() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
+    const [attempt, setAttempt] = useState(null);
     const [password, setPassword] = useState('');
 
     const register = async (event) => {
@@ -32,7 +37,20 @@ export default function RegisterContainer() {
             email: email
         })).data;
 
+        setAttempt(register.attempt);
         setAccess(Access.PASSWORD);
+    }
+
+    const addPass = async (event) => {
+        event.preventDefault();
+
+        const response = await (await HoleApi.post('key/password', {
+            attempt: attempt.key,
+            key: password
+        })).data;
+
+        setToken(response.token);
+        navigate('/app');
     }
 
     if (access === Access.PASSWORD) {
@@ -40,7 +58,7 @@ export default function RegisterContainer() {
             <FullContainer>
                 <MainBox>
                     <h4>Set a master password</h4>
-                    <form onSubmit={register}>
+                    <form onSubmit={addPass}>
                         <IconInput placeholder="Password" type="password" value={password}
                                    onChange={(value) => setPassword(value.target.value)}/>
                     </form>

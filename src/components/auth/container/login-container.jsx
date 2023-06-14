@@ -2,8 +2,8 @@ import FullContainer from "../../ui/container/content/full-container";
 import MainBox from "../../ui/box/main/main-box";
 import MainButton from "../../ui/button/main/main-button";
 import MainHeader from "../../header/main/main-header";
-import {HoleApi} from "../../../App";
 
+import {HoleApi} from "../../../App";
 import {useCookies} from "react-cookie";
 import {client} from "webauthn-prf";
 
