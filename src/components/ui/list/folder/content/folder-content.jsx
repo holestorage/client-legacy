@@ -9,42 +9,6 @@ import {HoleApi} from "../../../../../App";
 import BucketList from "../../bucket/bucket-list";
 import {useParams} from "react-router-dom";
 
-const files = [
-    {
-        type: 'image/png',
-        name: 'test',
-        date: 'test',
-        size: 1
-    },
-    {
-        type: 'image/png',
-        name: 'test',
-        date: 'test',
-        size: 1
-    },
-    {
-        type: 'image/png',
-        name: 'test',
-        date: 'test',
-        size: 1
-    }
-]
-
-const folders = [
-    {
-        type: 'image/png',
-        name: 'test',
-        date: 'test',
-        size: 1
-    },
-    {
-        type: 'image/png',
-        name: 'test',
-        date: 'test',
-        size: 1
-    }
-]
-
 export default function FolderContent({ fallback }) {
     const [data, setData] = useState(null);
 
@@ -56,6 +20,9 @@ export default function FolderContent({ fallback }) {
     }, []);
 
     if (data) {
+        const files = data.bucket.root.files;
+        const folders = data.bucket.root.folders;
+
         return (
             <Container>
                 <HeaderMain left={
@@ -66,7 +33,7 @@ export default function FolderContent({ fallback }) {
                 }>
                     <PathDisplay list={[{name: "Drive"}, {name: "Family"}]} />
                 </HeaderMain>
-                {folders.length > 0 && <FolderList list={files} />}
+                {folders.length > 0 && <FolderList list={folders} />}
                 {files.length > 0 ? <FileList list={files} /> : fallback}
             </Container>
         )
