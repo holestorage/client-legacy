@@ -1,7 +1,7 @@
 import {Route, Routes, useLocation} from "react-router-dom";
 
 import NotFoundFallback from "../../pages/fallback/not-found-fallback";
-import LoginAuthmContainer from "../../auth/container/authm/login-container";
+import LoginContainer from "../../auth/container/login-container";
 import RegisterContainer from "../../auth/container/register-container";
 
 const config = (id) => {
@@ -35,7 +35,7 @@ export default function AuthView() {
 
     return (
         <Routes location={location}>
-            <Route path="/login" element={<LoginAuthmContainer config={config} />}/>
+            <Route path="/login" element={<LoginContainer config={config} />}/>
             <Route path="/register" element={<RegisterContainer config={config} />}/>
 
             <Route path="/*" element={<NotFoundFallback />}/>
