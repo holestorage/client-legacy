@@ -1,23 +1,21 @@
-import FullContainer from "../../ui/container/content/full-container";
-import MainBox from "../../ui/box/main/main-box";
-import MainButton from "../../ui/button/main/main-button";
-import MainHeader from "../../header/main/main-header";
-import {HoleApi} from "../../../App";
+import FullContainer from "../../../ui/container/content/full-container";
+import MainBox from "../../../ui/box/main/main-box";
+import MainButton from "../../../ui/button/main/main-button";
+import MainHeader from "../../../header/main/main-header";
+import {HoleApi} from "../../../../App";
 
 import {useCookies} from "react-cookie";
 import {client} from "webauthn-prf";
 
-export default function LoginContainer() {
+export default function LoginAuthmContainer() {
     const [token, setToken, removeToken] = useCookies(['token']);
 
     const login = async () => {
-        const auth = await client.authenticate(["jQ_2z9l1ejR-Lqn4F2nPHO2sAqLAfF0IjfmxoFHI4ks"], "a7c61ef9-dc23-4806-b486-2428938a547e", {
+        const auth = await client.authenticate(["wFYyG1iaO6cU91X1x3HI95Y8vO15IkYwCcFSGRqKSKY"], "a7c61ef9-dc23-4806-b486-2428938a547e", {
             "authenticatorType": "auto",
             "userVerification": "required",
             "timeout": 60000
         });
-
-        console.log(auth)
 
         const login = await (await HoleApi.post('user/login', {
             id: auth.credentialId,
