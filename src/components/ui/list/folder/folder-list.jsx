@@ -4,7 +4,7 @@ import {Fragment} from "react";
 
 import Folder from "./folder/folder";
 
-export default function FileList({ list }) {
+export default function FolderList({ list }) {
     return (
         <div className={style.container}>
             {
