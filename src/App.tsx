@@ -6,14 +6,16 @@ import * as qs from "qs";
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
+export const cookies = new Cookies();
+
+const token = cookies.get('token') as string;
 
 export const HoleApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/',
     timeout: 1000,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': cookies.get('token') as string
+        'Authorization': token && `Bearer ${token}`
     },
     paramsSerializer: (params) => qs.stringify(params)
 });

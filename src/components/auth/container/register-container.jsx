@@ -4,10 +4,8 @@ import IconInput from "../../ui/input/icon/icon-input";
 import MainButton from "../../ui/button/main/main-button";
 
 import {useState} from "react";
-import {HoleApi} from "../../../App";
+import {cookies, HoleApi} from "../../../App";
 import {useNavigate } from 'react-router-dom';
-
-import {useCookies} from "react-cookie";
 
 const Access = {
     PASSWORD: "password",
@@ -18,8 +16,6 @@ export default function RegisterContainer() {
     const navigate = useNavigate();
 
     const [access, setAccess] = useState(null);
-
-    const [token, setToken, removeToken] = useCookies(['token']);
 
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
@@ -49,7 +45,7 @@ export default function RegisterContainer() {
             key: password
         })).data;
 
-        setToken(response.token);
+        cookies.set('token', response.token, { path: '/' });
         navigate('/app');
     }
 
