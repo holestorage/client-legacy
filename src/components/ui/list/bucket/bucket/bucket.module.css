@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--theme-value-padding-main);
+    align-items: center;
+
+    background: var(--theme-palette-main-medium-hover);
+    border-radius: var(--theme-value-border_radius-min);
+    padding: var(--theme-value-padding-main);
+    cursor: pointer;
+
+    width: min-content;
+}
+
+.container:hover {
+    background: var(--theme-palette-main-light-hover);
+}
