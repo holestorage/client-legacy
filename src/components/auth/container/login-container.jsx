@@ -5,21 +5,23 @@ import MainHeader from "../../header/main/main-header";
 import {HoleApi} from "../../../App";
 
 import {useCookies} from "react-cookie";
-import {get} from "@github/webauthn-json/browser-ponyfill";
+import {client} from "webauthn-prf";
 
-export default function LoginContainer({ config }) {
+export default function LoginContainer() {
     const [token, setToken, removeToken] = useCookies(['token']);
 
     const login = async () => {
-        const credential = await get({
-            publicKey: await config()
+        const auth = await client.authenticate(["jQ_2z9l1ejR-Lqn4F2nPHO2sAqLAfF0IjfmxoFHI4ks"], "a7c61ef9-dc23-4806-b486-2428938a547e", {
+            "authenticatorType": "auto",
+            "userVerification": "required",
+            "timeout": 60000
         });
 
-        const key = JSON.stringify(credential);
+        console.log(auth)
 
         const login = await (await HoleApi.post('user/login', {
-            id: credential.id,
-            key: key
+            id: auth.credentialId,
+            key: auth
         })).data;
 
         setToken(login.token);

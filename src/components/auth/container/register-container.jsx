@@ -5,9 +5,11 @@ import IconInput from "../../ui/input/icon/icon-input";
 import {HoleApi} from "../../../App";
 import {useState} from "react";
 import MainButton from "../../ui/button/main/main-button";
-import {useCookies} from "react-cookie";
 
-export default function RegisterContainer({config}) {
+import {useCookies} from "react-cookie";
+import {client} from "webauthn-prf";
+
+export default function RegisterContainer() {
     const [token, setToken, removeToken] = useCookies(['token']);
 
     const [username, setUsername] = useState('');
@@ -23,18 +25,20 @@ export default function RegisterContainer({config}) {
             email: email
         })).data;
 
-        const key = await navigator.credentials.create({
-            publicKey: await config(account.id)
+        const register = await client.register("Arnaud", "a7c61ef9-dc23-4806-b486-2428938a547e", {
+            "authenticatorType": "local",
+            "userVerification": "required",
+            "timeout": 60000,
+            "attestation": false,
+            "debug": false
         });
 
-        console.log(key)
-        const publicKey = btoa(String.fromCharCode.apply(null, new Uint8Array(key.response)));
-        console.log(publicKey)
+        console.log(register)
+        console.log(register.getClientExtensionResults())
 
         const login = await (await HoleApi.post('key', {
             attempt: account.attempt.key,
-            id: key.id,
-            key: publicKey
+            key: register
         })).data;
 
         setToken(login.token);
