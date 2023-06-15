@@ -2,6 +2,7 @@ import style from "./file-icon.module.css";
 
 import {HoleApi} from "../../../../../../App";
 import {useState} from "react";
+import {Buffer} from 'buffer';
 
 export default function FileIcon({ data }) {
     const [raw, setRaw] = useState(null);
@@ -75,13 +76,13 @@ export default function FileIcon({ data }) {
 
     const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
 
-    HoleApi.get(`file/${data.id}/raw`).then(response => {
-        return setRaw(data, response.data);
+    HoleApi.get(`file/${data.id}/raw`, { responseType: "arraybuffer" }).then(response => {
+        return setRaw(response.data);
     });
 
     if (fileType.element && raw) {
-        const base64 = btoa(new Uint8Array(raw).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-        return fileType.element(data, `data:;base64,${base64}`);
+        const base64 = Buffer.from(raw, 'binary').toString('base64');
+        return fileType.element(data, base64);
     }
 
     return (
