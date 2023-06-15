@@ -72,7 +72,7 @@ export default function FileIcon({ data }) {
     const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
 
     if (fileType.element) {
-        return fileType.element(data, `${HoleApi.getUri()}file/${data.id}/raw`);
+        return fileType.element(data, HoleApi.get(`file/${data.id}/raw`));
     }
 
     return (
