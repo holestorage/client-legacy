@@ -75,17 +75,15 @@ export default function FileIcon({ data }) {
 
     const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
 
-    if (!fileType.element) {
-        return (
-            <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
-        )
+    HoleApi.get(`file/${data.id}/raw`).then(response => {
+        return setRaw(response.data);
+    });
+
+    if (fileType.element && raw) {
+        return fileType.element(data, raw);
     }
 
-    const fetchRaw = () => {
-        HoleApi.get(`file/${data.id}/raw`).then(response => {
-            return fileType.element(data, response.data);
-        });
-    }
-
-    return fetchRaw();
+    return (
+        <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
+    )
 }
