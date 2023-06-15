@@ -1,6 +1,9 @@
 import style from "./file-icon.module.css";
+import {HoleApi} from "../../../../../../App";
 
-export default function FileIcon({ type }) {
+export default function FileIcon({ data }) {
+    const type = data.type;
+
     const value = {
         fallback: {
             icon: 'fa-light fa-file'
@@ -9,7 +12,8 @@ export default function FileIcon({ type }) {
             list: [
                 {
                     'name': 'image',
-                    icon: 'fa-regular fa-camera',
+                    'icon': 'fa-regular fa-camera',
+                    'element': (data, raw) => { return <img alt={data.name} src={raw} /> },
                     'list': [
                         {'extension': 'jpg', 'mimetype': 'image/jpeg'},
                         {'extension': 'jpeg', 'mimetype': 'image/jpeg'},
@@ -65,7 +69,13 @@ export default function FileIcon({ type }) {
         }
     }
 
+    const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
+
+    if (fileType.element) {
+        return fileType.element(data, `${HoleApi.getUri()}file/${data.id}/raw`);
+    }
+
     return (
-        <i className={[value.types.list.find((value) => value.list.some((item) => item.mimetype === type))?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
+        <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
     )
 }

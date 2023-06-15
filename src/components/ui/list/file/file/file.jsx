@@ -3,7 +3,7 @@ import style from "./file.module.css";
 import ToolList from "../../tool/tool-list";
 import FileIcon from "./icon/file-icon";
 
-export default function File({value}) {
+export default function File({ value }) {
     const section = [
         {
             featured: true,
@@ -72,7 +72,7 @@ export default function File({value}) {
 
     return (
         <div className={style.container}>
-            <FileIcon type={value.type} />
+            <FileIcon data={value} />
             <p>{value.name}</p>
             <p>{value.date}</p>
             <p>{value.size}</p>

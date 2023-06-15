@@ -1,5 +1,4 @@
 import {Fragment, useEffect, useState} from "react";
-import {Container} from "@chakra-ui/react";
 import HeaderMain from "../../../header/main/header-main";
 import MainButton from "../../../button/main/main-button";
 import PathDisplay from "../../path/display/path-display";
@@ -7,6 +6,7 @@ import FileList from "../../file/file-list";
 import FolderList from "../folder-list";
 import {HoleApi} from "../../../../../App";
 import {useParams} from "react-router-dom";
+import Container from "../../../container/container";
 
 export default function FolderContent({ fallback }) {
     const [data, setData] = useState(null);
@@ -15,11 +15,9 @@ export default function FolderContent({ fallback }) {
 
     const fetchContent = () => {
         HoleApi.get(`folder/${id}`).then(response => setData(response.data));
-    }
+    };
 
-    useEffect(() => {
-        fetchContent();
-    }, [id]);
+    useEffect(() => fetchContent(), [id]);
 
     if (data) {
         const files = data.folder.files;

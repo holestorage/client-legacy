@@ -10,9 +10,7 @@ export default function BoardPage() {
         HoleApi.get(`bucket`).then(response => setData(response.data));
     }
 
-    useEffect(() => {
-        fetchBucket();
-    }, []);
+    useEffect(() => fetchBucket(), []);
 
     if (data) {
         return (
