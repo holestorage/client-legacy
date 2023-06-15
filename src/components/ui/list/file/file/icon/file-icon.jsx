@@ -75,16 +75,18 @@ export default function FileIcon({ data }) {
 
     const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
 
-    HoleApi.get(`file/${data.id}/raw`, { responseType: "arraybuffer" }).then(response => {
-        return setRaw(response.data);
-    });
+    if (fileType && fileType.element) {
+        HoleApi.get(`file/${data.id}/raw`, { responseType: "arraybuffer" }).then(response => {
+            return setRaw(response.data);
+        });
 
-    if (fileType && fileType.element && raw) {
-        return (
-            <div className={style.container}>
-                {fileType.element(data, URL.createObjectURL(new Blob([raw], { type: data.type })))}
-            </div>
-        )
+        if (raw) {
+            return (
+                <div className={style.container}>
+                    {fileType.element(data, URL.createObjectURL(new Blob([raw])))}
+                </div>
+            )
+        }
     }
 
     return (

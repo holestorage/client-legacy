@@ -2,6 +2,8 @@ import style from "./file.module.css";
 
 import ToolList from "../../tool/tool-list";
 import FileIcon from "./icon/file-icon";
+import {HoleApi} from "../../../../../App";
+import { saveAs } from 'file-saver';
 
 export default function File({ value }) {
     const section = [
@@ -16,7 +18,12 @@ export default function File({ value }) {
                 {
                     id: 'download',
                     name: 'Download',
-                    icon: 'fa-regular fa-arrow-down-to-line'
+                    icon: 'fa-regular fa-arrow-down-to-line',
+                    action: (data) => {
+                        HoleApi.get(`file/${data.id}/raw`, { responseType: "arraybuffer" }).then(response => {
+                            saveAs(new Blob([response.data]), data.name);
+                        })
+                    }
                 }
             ]
         },
@@ -77,7 +84,7 @@ export default function File({ value }) {
             <p>{value.date}</p>
             <p>{value.size}</p>
             <div className={style.content}>
-                <ToolList section={section.filter(item => item.featured)} />
+                <ToolList data={value} section={section.filter(item => item.featured)} />
             </div>
         </div>
     )

@@ -4,7 +4,7 @@ import {Fragment} from "react";
 
 import IconButton from "../../button/icon/icon-button";
 
-export default function ToolList({ section }) {
+export default function ToolList({ data, section }) {
     return (
         <div className={style.container}>
             {
@@ -13,7 +13,7 @@ export default function ToolList({ section }) {
                         {
                             value.list.map((value, key) =>
                                 <Fragment key={key}>
-                                    <IconButton icon={value.icon} />
+                                    <IconButton action={() => value.action(data)} icon={value.icon} />
                                 </Fragment>
                             )
                         }
