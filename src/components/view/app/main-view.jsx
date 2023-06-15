@@ -10,7 +10,7 @@ export default function MainView() {
         <Routes location={location}>
             <Route path="/auth/*" element={<AuthView />}/>
 
-            <Route path="/app/*" element={<AppView />}/>
+            <Route path="*" element={<AppView />}/>
         </Routes>
     )
 }

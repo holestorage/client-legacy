@@ -6,7 +6,6 @@ import PathDisplay from "../../path/display/path-display";
 import FileList from "../../file/file-list";
 import FolderList from "../folder-list";
 import {HoleApi} from "../../../../../App";
-import BucketList from "../../bucket/bucket-list";
 import {useParams} from "react-router-dom";
 
 export default function FolderContent({ fallback }) {
@@ -14,14 +13,17 @@ export default function FolderContent({ fallback }) {
 
     const { id } = useParams();
 
-    useEffect(async () => {
-        setData(await (await HoleApi.get(`bucket/${id}/files`, {
-        })).data)
-    }, []);
+    const fetchContent = () => {
+        HoleApi.get(`folder/${id}`).then(response => setData(response.data));
+    }
+
+    useEffect(() => {
+        fetchContent();
+    }, [id]);
 
     if (data) {
-        const files = data.bucket.root.files;
-        const folders = data.bucket.root.folders;
+        const files = data.folder.files;
+        const folders = data.folder.folders;
 
         return (
             <Container>

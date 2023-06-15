@@ -6,9 +6,12 @@ import {useEffect, useState} from "react";
 export default function BoardPage() {
     const [data, setData] = useState(null);
 
-    useEffect(async () => {
-        setData(await (await HoleApi.get('bucket', {
-        })).data)
+    const fetchBucket = () => {
+        HoleApi.get(`bucket`).then(response => setData(response.data));
+    }
+
+    useEffect(() => {
+        fetchBucket();
     }, []);
 
     if (data) {

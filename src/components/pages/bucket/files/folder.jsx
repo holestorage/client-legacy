@@ -2,6 +2,8 @@ import {Fragment} from "react";
 import MainButton from "../../../ui/button/main/main-button";
 import HeaderMain from "../../../ui/header/main/header-main";
 import PathDisplay from "../../../ui/list/path/display/path-display";
+import FolderList from "../../../ui/list/folder/folder-list";
+import FileList from "../../../ui/list/file/file-list";
 
 const files = [
     {
