@@ -79,11 +79,17 @@ export default function FileIcon({ data }) {
         return setRaw(response.data);
     });
 
-    if (fileType.element && raw) {
-        return fileType.element(data, URL.createObjectURL(new Blob([raw], { type: data.type })));
+    if (fileType && fileType.element && raw) {
+        return (
+            <div className={style.container}>
+                {fileType.element(data, URL.createObjectURL(new Blob([raw], { type: data.type })))}
+            </div>
+        )
     }
 
     return (
-        <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
+        <div className={style.container}>
+            <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
+        </div>
     )
 }
