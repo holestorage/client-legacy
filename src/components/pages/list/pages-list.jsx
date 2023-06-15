@@ -7,11 +7,11 @@ const list = [
         icon: 'fa-regular fa-house-blank',
         path: '/'
     },
-    {
+    /*{
         name: "Drive",
         icon: 'fa-regular fa-hard-drive',
         path: '/app/'
-    },
+    },*/
     {
         name: "Pricing",
         icon: 'fa-regular fa-gear',

@@ -46,7 +46,7 @@ export default function RegisterContainer() {
         })).data;
 
         cookies.set('token', response.token, { path: '/' });
-        navigate('/app');
+        navigate('/');
     }
 
     if (access === Access.PASSWORD) {

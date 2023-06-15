@@ -1,10 +1,10 @@
 import style from "./file-icon.module.css";
 
 import {HoleApi} from "../../../../../../App";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export default function FileIcon({ data }) {
-    const [raw, setRaw] = useState('');
+    const [raw, setRaw] = useState(null);
 
     const type = data.type;
 
@@ -76,11 +76,18 @@ export default function FileIcon({ data }) {
     const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
 
     HoleApi.get(`file/${data.id}/raw`).then(response => {
-        return setRaw(response.data);
+        return setRaw(data, response.data);
     });
 
     if (fileType.element && raw) {
-        return fileType.element(data, raw);
+        const fetchRaw = () => {
+            HoleApi.get(`file/${data.id}/raw`).then(response => {
+                console.log(new Blob([response.data], { type: data.type }))
+                return fileType.element(data, new Blob([response.data], { type: data.type }));
+            });
+        }
+
+        return fetchRaw();
     }
 
     return (

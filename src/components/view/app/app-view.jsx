@@ -19,7 +19,7 @@ const category = [
             {
                 name: "Home",
                 icon: 'fa-regular fa-house-blank',
-                path: '/app/'
+                path: '/'
             },
             {
                 name: "Photos",

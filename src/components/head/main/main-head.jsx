@@ -6,7 +6,7 @@ export default function MainHead({ app }) {
     return (
         <div className={style.container}>
             <Link to={app ? '/app/' : '/'}>
-                <p>Doglock</p>
+                <p>Hole</p>
             </Link>
         </div>
     )

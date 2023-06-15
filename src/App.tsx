@@ -12,7 +12,7 @@ const token = cookies.get('token') as string;
 
 export const HoleApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/',
-    timeout: 1000,
+    timeout: 5000,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': token && `Bearer ${token}`
