@@ -31,7 +31,7 @@ export default function FolderContent({ fallback }) {
                         <MainButton icon="fa-regular fa-folder" text="Create folder" />
                     </Fragment>
                 }>
-                    <PathDisplay list={[{name: "Drive"}, {name: "Family"}]} />
+                    <PathDisplay data={data.folder} />
                 </HeaderMain>
                 {folders.length > 0 && <FolderList list={folders} />}
                 {files.length > 0 ? <FileList list={files} /> : fallback}

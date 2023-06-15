@@ -1,17 +1,24 @@
 import style from "./path-module.module.css";
 
 import {Fragment} from "react";
+export default function PathDisplay({ data }) {
+    const parentList = [];
 
-import Path from "./path/path";
+    const iterateParent = (parent) => {
+        if (parent) {
+            parentList.push(parent);
+            iterateParent(parent.parent);
+        }
+    };
 
-export default function PathDisplay({ list }) {
+    iterateParent(data.parent);
+
     return (
         <div className={style.container}>
             {
-                list.map((value, key) =>
+                parentList.map((value, key) =>
                     <Fragment key={key}>
-                        <Path value={value} />
-                        {key !== list.length - 1 && <i className="fa-light fa-chevron-right" />}
+                        {value.name}
                     </Fragment>
                 )
             }

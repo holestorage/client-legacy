@@ -5,7 +5,7 @@
 
     background: var(--theme-palette-main-light);
     border-radius: var(--theme-value-border_radius-min);
-    width: 50px;
+    width: 40px;
     aspect-ratio: 1 / 1;
     overflow: hidden;
 }
