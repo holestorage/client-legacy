@@ -2,7 +2,6 @@ import style from "./file-icon.module.css";
 
 import {HoleApi} from "../../../../../../App";
 import {useState} from "react";
-import {Buffer} from 'buffer';
 
 export default function FileIcon({ data }) {
     const [raw, setRaw] = useState(null);
@@ -81,8 +80,7 @@ export default function FileIcon({ data }) {
     });
 
     if (fileType.element && raw) {
-        const base64 = Buffer.from(raw, 'binary').toString('base64');
-        return fileType.element(data, base64);
+        return fileType.element(data, URL.createObjectURL(new Blob([raw], { type: data.type })));
     }
 
     return (
