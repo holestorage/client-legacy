@@ -1,7 +1,11 @@
 import style from "./file-icon.module.css";
+
 import {HoleApi} from "../../../../../../App";
+import {useEffect, useState} from "react";
 
 export default function FileIcon({ data }) {
+    const [raw, setRaw] = useState('');
+
     const type = data.type;
 
     const value = {
@@ -71,11 +75,17 @@ export default function FileIcon({ data }) {
 
     const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
 
-    if (fileType.element) {
-        return fileType.element(data, HoleApi.get(`file/${data.id}/raw`));
+    if (!fileType.element) {
+        return (
+            <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
+        )
     }
 
-    return (
-        <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
-    )
+    const fetchRaw = () => {
+        HoleApi.get(`file/${data.id}/raw`).then(response => {
+            return fileType.element(data, response.data);
+        });
+    }
+
+    return fetchRaw();
 }
