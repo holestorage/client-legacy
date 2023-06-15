@@ -80,14 +80,8 @@ export default function FileIcon({ data }) {
     });
 
     if (fileType.element && raw) {
-        const fetchRaw = () => {
-            HoleApi.get(`file/${data.id}/raw`).then(response => {
-                console.log(new Blob([response.data], { type: data.type }))
-                return fileType.element(data, new Blob([response.data], { type: data.type }));
-            });
-        }
-
-        return fetchRaw();
+        const base64 = btoa(new Uint8Array(raw).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+        return fileType.element(data, `data:;base64,${base64}`);
     }
 
     return (
