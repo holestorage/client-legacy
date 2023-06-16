@@ -73,7 +73,7 @@ export default function File({ value }) {
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
                     dialog: {
-                        title: "Delete",
+                        title: "Delete file",
                         body: "The file will be moved to trash. Are you sure?"
                     }
                 }
