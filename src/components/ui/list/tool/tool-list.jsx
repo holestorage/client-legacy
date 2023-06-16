@@ -1,10 +1,14 @@
 import style from "./tool-list.module.css";
 
-import {Fragment} from "react";
+import {Fragment, useContext} from "react";
 
 import IconButton from "../../button/icon/icon-button";
+import PopupDialog from "../../../popup/dialog/popup-dialog";
+import {PopupContext} from "../../../provider/popup-provider";
 
-export default function ToolList({ data, section }) {
+export default function ToolList({ section }) {
+    const popupContext = useContext(PopupContext);
+
     return (
         <div className={style.container}>
             {
@@ -13,7 +17,8 @@ export default function ToolList({ data, section }) {
                         {
                             value.list.map((value, key) =>
                                 <Fragment key={key}>
-                                    <IconButton action={() => value.action(data)} icon={value.icon} />
+                                    <IconButton icon={value.icon}
+                                        action={() => value.dialog && popupContext.setCurrent(<PopupDialog title={value.dialog.title} body={value.dialog.body} />)} />
                                 </Fragment>
                             )
                         }

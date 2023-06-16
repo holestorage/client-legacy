@@ -5,6 +5,7 @@ import MainView from "./components/view/app/main-view";
 import * as qs from "qs";
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import PopupProvider from "./components/provider/popup-provider";
 
 export const cookies = new Cookies();
 
@@ -23,7 +24,9 @@ export const HoleApi = axios.create({
 function App() {
     return (
         <div className="App">
-            <MainView/>
+            <PopupProvider>
+                <MainView/>
+            </PopupProvider>
         </div>
     );
 }

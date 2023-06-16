@@ -71,7 +71,11 @@ export default function File({ value }) {
                 {
                     id: 'remove',
                     name: 'Remove',
-                    icon: 'fa-regular fa-trash'
+                    icon: 'fa-regular fa-trash',
+                    dialog: {
+                        title: "Delete",
+                        body: "Are you sure?"
+                    }
                 }
             ]
         }
