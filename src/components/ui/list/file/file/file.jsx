@@ -20,7 +20,7 @@ export default function File({ value }) {
                     name: 'Download',
                     icon: 'fa-regular fa-arrow-down-to-line',
                     action: (data) => {
-                        HoleApi.get(`file/${data.id}/raw`, { responseType: "arraybuffer" }).then(response => {
+                        HoleApi.get(`file/${data.id}/raw`).then(response => {
                             saveAs(new Blob([response.data]), data.name);
                         })
                     }
