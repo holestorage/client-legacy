@@ -1,6 +1,6 @@
-.container, .centered {
-    height: 100px;
-    width: 200px;
+.container {
+    height: 200px;
+    width: 500px;
 
     background: var(--theme-palette-main-color);
     padding: var(--theme-value-padding-big);

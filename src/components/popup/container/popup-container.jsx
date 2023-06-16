@@ -9,7 +9,7 @@ export default function PopupContainer({ children }) {
     return (
         <div className={style.container}>
             {children}
-            <div className={style.background} onClick={() => popupContext.setCurrent(null)} />
+            <div className={style.full} onClick={() => popupContext.setCurrent(null)} />
         </div>
     )
 }

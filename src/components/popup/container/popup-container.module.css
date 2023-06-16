@@ -1,14 +1,19 @@
-.container, .container > div {
+.container, .full {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
-.container > div {
+.full {
+    z-index: -1;
 }
 
-.background {
+.container {
     background: rgba(0, 0, 0, 0.6);
 }

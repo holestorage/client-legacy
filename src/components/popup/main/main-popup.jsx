@@ -7,14 +7,14 @@ import PopupContainer from "../container/popup-container";
 
 import {PopupContext} from "../../provider/popup-provider";
 
-export default function MainPopup({ centered, title, children, footer }) {
+export default function MainPopup({ title, children, footer }) {
     const popupContext = useContext(PopupContext);
 
     return (
         <PopupContainer>
-            <div className={centered ? style.centered : style.container}>
+            <div className={style.container}>
                 <div className={style.header}>
-                    {title && <h1>{title}</h1>}
+                    {title && <h4>{title}</h4>}
                     <IconButton icon="fa-sharp fa-regular fa-xmark" action={() => popupContext.setCurrent(null)}></IconButton>
                 </div>
                 <div className={style.content}>
