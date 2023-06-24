@@ -1,7 +1,7 @@
 .danger {
-    background: var(--theme-palette-color-red-main);
+    background: var(--theme-palette-color-red-main) !important;
 }
 
 .danger:hover {
-    background: var(--theme-palette-color-red-hover);
+    background: var(--theme-palette-color-red-hover) !important;
 }

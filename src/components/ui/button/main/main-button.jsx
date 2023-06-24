@@ -1,6 +1,6 @@
 import style from "./main-button.module.css";
 
-export default function MainButton({ icon, text, action, submit, className }) {
+export default function MainButton({ icon, text, children, action, submit, className }) {
     if (submit) {
         return (
             <input className={[style.button, className].join(" ")} type="submit" value={text} onSubmit={submit}/>
@@ -11,6 +11,7 @@ export default function MainButton({ icon, text, action, submit, className }) {
         <button className={[style.button, className].join(" ")} onClick={action}>
             {icon && <i className={icon}/>}
             {text}
+            {children}
         </button>
     )
 }
