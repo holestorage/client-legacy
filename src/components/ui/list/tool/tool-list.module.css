@@ -1,9 +1,3 @@
-.container {
-    display: grid;
-    grid-auto-flow: column;
-    gap: var(--theme-value-padding-main);
-}
-
 .element {
     display: grid;
     grid-auto-flow: column;

@@ -8,14 +8,16 @@ export default function IconButton({ icon, text, loadable, action }) {
 
     return (
         <div className={style.container}>
-            {loading ? <LoadCircle /> :
+            {
+                loading ? <LoadCircle /> :
                 <button onClick={loadable ? () => {
                     setLoading(true);
                     action().then(() => setLoading(false));
                 } : () => action()} className={style.button}>
                     <i className={icon} />
                     <p>{text}</p>
-                </button>}
+                </button>
+            }
         </div>
     )
 }
