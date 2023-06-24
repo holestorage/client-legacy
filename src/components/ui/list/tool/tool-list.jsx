@@ -5,6 +5,7 @@ import {Fragment, useContext} from "react";
 import IconButton from "../../button/icon/icon-button";
 import PopupDialog from "../../../popup/dialog/popup-dialog";
 import {PopupContext} from "../../../provider/popup-provider";
+import Loadable from "../../../skeleton/loadable/loadable";
 
 export default function ToolList({ data, section }) {
     const popupContext = useContext(PopupContext);
@@ -17,9 +18,11 @@ export default function ToolList({ data, section }) {
                         {
                             value.list.map((value, key) =>
                                 <Fragment key={key}>
-                                    <IconButton icon={value.icon} loadable={!value.dialog} action={() => value.dialog ? popupContext.setCurrent(
+                                    <Loadable loadable={!value.dialog} action={() => value.dialog ? popupContext.setCurrent(
                                         <PopupDialog title={value.dialog.title} body={value.dialog.body}
-                                                     button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />) : value.action(data)}/>
+                                                     button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />) : value.action(data)}>
+                                        <IconButton icon={value.icon} />
+                                    </Loadable>
                                 </Fragment>
                             )
                         }
