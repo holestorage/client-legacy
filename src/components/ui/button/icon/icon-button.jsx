@@ -12,7 +12,7 @@ export default function IconButton({ icon, text, loadable, action }) {
                 <button onClick={loadable ? () => {
                     setLoading(true);
                     action().then(() => setLoading(false));
-                } : null} className={style.button}>
+                } : () => action()} className={style.button}>
                     <i className={icon} />
                     <p>{text}</p>
                 </button>}
