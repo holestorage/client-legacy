@@ -3,9 +3,9 @@ import './App.css';
 import MainView from "./components/view/app/main-view";
 
 import * as qs from "qs";
-import axios from 'axios';
 import Cookies from 'universal-cookie';
 import PopupProvider from "./components/provider/popup-provider";
+import axios from "axios";
 
 export const cookies = new Cookies();
 
