@@ -1,5 +1,5 @@
 .container {
-    height: 200px;
+    min-height: 100px;
     width: 500px;
 
     background: var(--theme-palette-main-color);
@@ -7,17 +7,17 @@
     border-radius: var(--theme-value-border_radius-min);
 
     display: grid;
-    grid-gap: var(--theme-value-padding-big);
-    grid-template-rows: auto 1fr auto;
-}
-
-.container > div {
-    display: grid;
-    grid-gap: var(--theme-value-padding-big);
+    gap: var(--theme-value-padding-big);
+    grid-template-rows: auto 1fr;
 }
 
 .container {
     right: 0;
+}
+
+.content {
+    display: grid;
+    gap: var(--theme-value-padding-main);
 }
 
 .centered {
@@ -36,5 +36,8 @@
 }
 
 .footer {
-    text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: left;
+    gap: var(--theme-value-padding-main);
 }

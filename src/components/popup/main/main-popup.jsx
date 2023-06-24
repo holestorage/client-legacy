@@ -13,12 +13,14 @@ export default function MainPopup({ title, children, footer }) {
     return (
         <PopupContainer>
             <div className={style.container}>
-                <div className={style.header}>
-                    {title && <h4>{title}</h4>}
-                    <IconButton icon="fa-sharp fa-regular fa-xmark" action={() => popupContext.setCurrent(null)}></IconButton>
-                </div>
                 <div className={style.content}>
-                    {children}
+                    <div className={style.header}>
+                        {title && <h4>{title}</h4>}
+                        <IconButton icon="fa-sharp fa-regular fa-xmark" action={() => popupContext.setCurrent(null)}></IconButton>
+                    </div>
+                    <div className={style.content}>
+                        {children}
+                    </div>
                 </div>
                 <div className={style.footer}>
                     {footer}

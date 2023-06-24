@@ -16,6 +16,7 @@
     --theme-palette-brand-gradient-main: linear-gradient(270deg, rgb(120, 142, 239) 0%, rgba(158,205,241,1) 100%);
 
     --theme-palette-color-red-main: #fc3333;
+    --theme-palette-color-red-hover: #e12929;
 
     --theme-palette-brand-color-main: #429cea;
     --theme-palette-brand-color-light: #52a0e7;
