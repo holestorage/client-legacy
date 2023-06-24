@@ -4,8 +4,16 @@ import ToolList from "../../tool/tool-list";
 import FileIcon from "./icon/file-icon";
 import {HoleApi} from "../../../../../App";
 import { saveAs } from 'file-saver';
+import {useContext} from "react";
+import {PopupContext} from "../../../../provider/popup-provider";
 
 export default function File({ value }) {
+    const popupContext = useContext(PopupContext);
+
+    const close = () => {
+        popupContext.setCurrent(null)
+    };
+
     const section = [
         {
             featured: true,
@@ -72,9 +80,18 @@ export default function File({ value }) {
                     id: 'remove',
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
+                    action: (data) => {
+                        HoleApi.patch(`file/${data.id}/trash`).then(ignored => {
+                            close();
+                        });
+                    },
                     dialog: {
                         title: "Delete file",
-                        body: "The file will be moved to trash. Are you sure?"
+                        body: "The file will be moved to trash. Are you sure?",
+                        button: {
+                            text: "Confirm",
+                            style: "danger"
+                        }
                     }
                 }
             ]
