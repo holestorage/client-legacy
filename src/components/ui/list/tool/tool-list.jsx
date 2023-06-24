@@ -17,7 +17,7 @@ export default function ToolList({ data, section }) {
                         {
                             value.list.map((value, key) =>
                                 <Fragment key={key}>
-                                    <IconButton icon={value.icon} action={() => value.dialog ? popupContext.setCurrent(
+                                    <IconButton icon={value.icon} loadable action={() => value.dialog ? popupContext.setCurrent(
                                         <PopupDialog title={value.dialog.title} body={value.dialog.body}
                                                      button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />) : value.action(data)}/>
                                 </Fragment>
