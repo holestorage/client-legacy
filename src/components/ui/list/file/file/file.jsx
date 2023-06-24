@@ -28,7 +28,7 @@ export default function File({ value }) {
                     name: 'Download',
                     icon: 'fa-regular fa-arrow-down-to-line',
                     action: (data) => {
-                        HoleApi.get(`file/${data.id}/raw`).then(response => {
+                        return HoleApi.get(`file/${data.id}/raw`).then(response => {
                             saveAs(new Blob([response.data]), data.name);
                         })
                     }
@@ -81,7 +81,7 @@ export default function File({ value }) {
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
                     action: (data) => {
-                        HoleApi.patch(`file/${data.id}/trash`).then(ignored => {
+                        return HoleApi.patch(`file/${data.id}/trash`).then(ignored => {
                             close();
                         });
                     },

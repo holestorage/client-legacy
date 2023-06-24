@@ -1,19 +1,22 @@
 import Container from "../../ui/container/container";
 import BucketList from "../../ui/list/bucket/bucket-list";
 import {HoleApi} from "../../../App";
-import {useAxios} from "use-axios-client";
+import {useEffect, useState} from "react";
 
 export default function BoardPage() {
-    const {data, error, loading} = useAxios({
-        axiosInstance: HoleApi,
-        url: 'bucket'
-    });
+    const [data, setData] = useState(null);
 
-    return (
-        <>
-            {loading && <p>Loading</p>}
-            {error && console.log(error)}
-            {data && <Container><BucketList list={data.list}/></Container>}
-        </>
-    )
+    const fetchBucket = () => {
+        HoleApi.get(`bucket`).then(response => setData(response.data));
+    }
+
+    useEffect(() => fetchBucket(), []);
+
+    if (data) {
+        return (
+            <Container>
+                <BucketList list={data.list} />
+            </Container>
+        )
+    }
 }
