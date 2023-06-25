@@ -17,6 +17,7 @@
     "base64url": "^3.0.1",
     "boring-avatars": "^1.7.0",
     "buffer": "^6.0.3",
+    "convert-size": "^1.2.1",
     "file-saver": "^2.0.5",
     "framer-motion": "^10.12.11",
     "moment": "^2.29.4",

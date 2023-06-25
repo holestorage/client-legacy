@@ -3,21 +3,20 @@ import { saveAs } from 'file-saver';
 import FileBox from "./box/file-box";
 import {useContext} from "react";
 import {PopupContext} from "../../../../provider/popup-provider";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export default function File({ accessible, ...props }) {
     const navigate = useNavigate();
-
-    const { folder } = useParams();
-
     const popupContext = useContext(PopupContext);
 
     const close = () => {
         popupContext.setCurrent(null)
     };
 
-    const open = (id) => {
-        navigate(`/folder/${folder}/${id}`)
+    const open = (data) => {
+        if (accessible) {
+            navigate(`/folder/${data.folder}/${data.id}`);
+        }
     }
 
     const list = [
@@ -28,7 +27,7 @@ export default function File({ accessible, ...props }) {
                     id: 'open',
                     name: 'Open',
                     icon: 'fa-regular fa-arrow-up-right-and-arrow-down-left-from-center',
-                    action: (data) => open(data.id)
+                    action: (data) => open(data)
                 },
                 {
                     id: 'download',

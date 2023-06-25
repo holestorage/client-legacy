@@ -39,7 +39,7 @@ export default function FileList({ list, ...props }) {
             {
                 list.map((value, key) =>
                     <Fragment key={key}>
-                        <File { ...props } value={value} />
+                        <File { ...props } data={value} />
                     </Fragment>
                 )
             }
