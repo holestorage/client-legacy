@@ -34,6 +34,7 @@ export default function File({ accessible, ...props }) {
                     id: 'download',
                     name: 'Download',
                     icon: 'fa-regular fa-arrow-down-to-line',
+                    await: true,
                     action: (data) => {
                         return HoleApi.get(`file/${data.id}/raw`).then(response => {
                             saveAs(new Blob([response.data]), data.name);
