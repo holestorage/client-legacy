@@ -82,9 +82,10 @@ export default function AppView() {
                 <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/folder/:id" element={<FolderContent />}/>
                 <Route path="/photos" element={<BoardPage fallback={<PhotosFallback />} />}/>
+
                 <Route path="/pinned" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/shared" element={<BoardPage fallback={<FilesFallback />} />}/>
-                <Route path="/recent" element={<BoardPage fallback={<FilesFallback />} />}/>
+                <Route path="/recent" element={<CategoryContent title="Recent" category="recent" />} />
                 <Route path="/trash" element={<CategoryContent title="Trash" category="trash" />}/>
 
                 <Route path="/mobile" element={<AppContainer />}/>

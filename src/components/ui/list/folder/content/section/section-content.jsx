@@ -5,19 +5,20 @@ import PathDisplay from "../../../path/display/path-display";
 import FileList from "../../../file/file-list";
 import FolderList from "../../folder-list";
 import {HoleApi} from "../../../../../../App";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import Container from "../../../../container/container";
 
 export default function SectionContent({ title, path, fallback, ...props }) {
     const [data, setData] = useState(null);
 
+    const location = useLocation();
     const { id } = useParams();
 
     const fetchContent = () => {
         HoleApi.get(path).then(response => setData(response.data));
     };
 
-    useEffect(() => fetchContent(), [id]);
+    useEffect(() => fetchContent(), [location, id]);
 
     if (data) {
         const files = data.content.files;
