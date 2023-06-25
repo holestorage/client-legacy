@@ -6,7 +6,8 @@
 }
 
 .content {
-    background: var(--theme-palette-main-head);
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
 }
 
 .left {

@@ -31,7 +31,7 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                         <MainButton icon="fa-regular fa-folder" text="Create folder" />
                     </Fragment>
                 }>
-                    {title ? <h3>{title}</h3> : <PathDisplay data={data.content.folders} />}
+                    {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}
                 </HeaderMain>
                 {folders.length > 0 && <FolderList { ...props } list={folders} />}
                 {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
