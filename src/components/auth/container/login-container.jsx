@@ -6,6 +6,7 @@ import MainHeader from "../../header/main/main-header";
 import {HoleApi} from "../../../App";
 import {useCookies} from "react-cookie";
 import {client} from "webauthn-prf";
+import {Link} from "react-router-dom";
 
 export default function LoginContainer() {
     const [token, setToken, removeToken] = useCookies(['token']);
@@ -33,7 +34,7 @@ export default function LoginContainer() {
                 </MainHeader>
                 <p>Login with one click with your key</p>
                 <MainButton text="Continue" action={login} />
-                <p>You do not have an account? <a href="/auth/register">Sign up</a></p>
+                <p>You do not have an account? <Link to="/auth/register">Sign up</Link></p>
             </MainBox>
         </FullContainer>
     )

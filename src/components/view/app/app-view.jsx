@@ -11,7 +11,7 @@ import PhotosFallback from "../../pages/fallback/photos-fallback";
 import AppContainer from "../../ui/container/content/app/app-container";
 import NotFoundFallback from "../../pages/fallback/not-found-fallback";
 import SideSidebarLayout from "../../layout/side-sidebar-layout/side-sidebar-layout";
-import FolderContent from "../../ui/list/folder/content/folder-content";
+import FolderContent from "../../ui/list/folder/content/folder/folder-content";
 
 const category = [
     {

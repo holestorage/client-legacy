@@ -1,20 +1,19 @@
 import {Fragment, useEffect, useState} from "react";
-import HeaderMain from "../../../header/main/header-main";
-import MainButton from "../../../button/main/main-button";
-import PathDisplay from "../../path/display/path-display";
-import FileList from "../../file/file-list";
-import FolderList from "../folder-list";
-import {HoleApi} from "../../../../../App";
+import HeaderMain from "../../../../header/main/header-main";
+import MainButton from "../../../../button/main/main-button";
+import PathDisplay from "../../../path/display/path-display";
+import {HoleApi} from "../../../../../../App";
 import {useParams} from "react-router-dom";
-import Container from "../../../container/container";
+import Container from "../../../../container/container";
+import SectionContent from "../section/section-content";
 
-export default function FolderContent({ fallback }) {
+export default function CategoryContent({ section, fallback }) {
     const [data, setData] = useState(null);
 
     const { id } = useParams();
 
     const fetchContent = () => {
-        HoleApi.get(`folder/${id}`).then(response => setData(response.data));
+        HoleApi.get(`files/${section}`).then(response => setData(response.data));
     };
 
     useEffect(() => fetchContent(), [id]);
@@ -33,8 +32,7 @@ export default function FolderContent({ fallback }) {
                 }>
                     <PathDisplay data={data.folder} />
                 </HeaderMain>
-                {folders.length > 0 && <FolderList list={folders} />}
-                {files.length > 0 ? <FileList list={files} /> : fallback}
+                <SectionContent files={files} folders={folders} fallback={fallback} />
             </Container>
         )
     }

@@ -1,8 +1,8 @@
 import style from "./icon-icon.module.css";
 
-export default function IconButton({ icon, text }) {
+export default function IconButton({ action, icon, text }) {
     return (
-        <button className={style.button}>
+        <button onClick={action} className={style.button}>
             <i className={icon} />
             <p>{text}</p>
         </button>

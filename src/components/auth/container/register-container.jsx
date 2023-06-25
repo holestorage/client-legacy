@@ -5,7 +5,7 @@ import MainButton from "../../ui/button/main/main-button";
 
 import {useState} from "react";
 import {cookies, HoleApi} from "../../../App";
-import {useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 const Access = {
     PASSWORD: "password",
@@ -76,7 +76,7 @@ export default function RegisterContainer() {
                                onChange={(value) => setEmail(value.target.value)}/>
                     <MainButton text="Register" />
                 </form>
-                <p>Do you already have an account? <a href="/auth/login">Login</a></p>
+                <p>Do you already have an account? <Link to="/auth/login">Login</Link></p>
             </MainBox>
         </FullContainer>
     )
