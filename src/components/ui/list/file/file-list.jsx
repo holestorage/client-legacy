@@ -5,7 +5,7 @@ import {Fragment} from "react";
 import File from "./file/file";
 import Section from "../section/section/section";
 
-export default function FileList({ list }) {
+export default function FileList({ list, ...props }) {
     const sections = [
         {
             id: 'file',
@@ -39,7 +39,7 @@ export default function FileList({ list }) {
             {
                 list.map((value, key) =>
                     <Fragment key={key}>
-                        <File value={value} />
+                        <File { ...props } value={value} />
                     </Fragment>
                 )
             }

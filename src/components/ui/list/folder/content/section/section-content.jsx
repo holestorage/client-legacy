@@ -8,7 +8,7 @@ import {HoleApi} from "../../../../../../App";
 import {useParams} from "react-router-dom";
 import Container from "../../../../container/container";
 
-export default function SectionContent({ title, path, fallback }) {
+export default function SectionContent({ title, path, fallback, ...props }) {
     const [data, setData] = useState(null);
 
     const { id } = useParams();
@@ -33,8 +33,8 @@ export default function SectionContent({ title, path, fallback }) {
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content.folders} />}
                 </HeaderMain>
-                {folders.length > 0 && <FolderList list={folders} />}
-                {files.length > 0 ? <FileList list={files} /> : fallback}
+                {folders.length > 0 && <FolderList { ...props } list={folders} />}
+                {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
             </Container>
         )
     }
