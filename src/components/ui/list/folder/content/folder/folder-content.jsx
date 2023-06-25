@@ -1,10 +1,11 @@
 import {useParams} from "react-router-dom";
 import SectionContent from "../section/section-content";
+import FilesFallback from "../../../../../pages/fallback/files-fallback";
 
-export default function FolderContent(props) {
+export default function FolderContent() {
     const { id } = useParams();
 
     return (
-        <SectionContent { ...props } path={`folder/${id}`} />
+        <SectionContent path={`folder/${id}`} fallback={<FilesFallback />} />
     )
 }

@@ -8,7 +8,7 @@ import {HoleApi} from "../../../../../../App";
 import {useParams} from "react-router-dom";
 import Container from "../../../../container/container";
 
-export default function SectionContent({ path, fallback }) {
+export default function SectionContent({ title, path, fallback }) {
     const [data, setData] = useState(null);
 
     const { id } = useParams();
@@ -20,8 +20,8 @@ export default function SectionContent({ path, fallback }) {
     useEffect(() => fetchContent(), [id]);
 
     if (data) {
-        const files = data.folder.files;
-        const folders = data.folder.folders;
+        const files = data.content.files;
+        const folders = data.content.folders;
 
         return (
             <Container>
@@ -31,7 +31,7 @@ export default function SectionContent({ path, fallback }) {
                         <MainButton icon="fa-regular fa-folder" text="Create folder" />
                     </Fragment>
                 }>
-                    <PathDisplay data={data.folder} />
+                    {title ? <h3>{title}</h3> : <PathDisplay data={data.content.folders} />}
                 </HeaderMain>
                 {folders.length > 0 && <FolderList list={folders} />}
                 {files.length > 0 ? <FileList list={files} /> : fallback}

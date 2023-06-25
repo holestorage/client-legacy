@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: var(--theme-value-padding-main);
+    align-items: center;
 }
 
 .content > div {

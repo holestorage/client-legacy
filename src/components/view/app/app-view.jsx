@@ -12,6 +12,7 @@ import AppContainer from "../../ui/container/content/app/app-container";
 import NotFoundFallback from "../../pages/fallback/not-found-fallback";
 import SideSidebarLayout from "../../layout/side-sidebar-layout/side-sidebar-layout";
 import FolderContent from "../../ui/list/folder/content/folder/folder-content";
+import CategoryContent from "../../ui/list/folder/content/category/category-content";
 
 const category = [
     {
@@ -84,7 +85,7 @@ export default function AppView() {
                 <Route path="/pinned" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/shared" element={<BoardPage fallback={<FilesFallback />} />}/>
                 <Route path="/recent" element={<BoardPage fallback={<FilesFallback />} />}/>
-                <Route path="/trash" element={<BoardPage fallback={<TrashFallback />} />}/>
+                <Route path="/trash" element={<CategoryContent title="Trash" category="trash" />}/>
 
                 <Route path="/mobile" element={<AppContainer />}/>
 
