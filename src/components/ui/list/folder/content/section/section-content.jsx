@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useContext, useEffect, useState} from "react";
 import HeaderMain from "../../../../header/main/header-main";
 import MainButton from "../../../../button/main/main-button";
 import PathDisplay from "../../../path/display/path-display";
@@ -7,18 +7,31 @@ import FolderList from "../../folder-list";
 import {HoleApi} from "../../../../../../App";
 import {useLocation, useParams} from "react-router-dom";
 import Container from "../../../../container/container";
+import {PopupContext} from "../../../../../provider/popup-provider";
+import FilePopup from "../../../../../popup/content/file/file-popup";
 
 export default function SectionContent({ title, path, fallback, ...props }) {
+    const popupContext = useContext(PopupContext);
+
     const [data, setData] = useState(null);
 
     const location = useLocation();
-    const { id } = useParams();
+    const { folder, file } = useParams();
 
     const fetchContent = () => {
         HoleApi.get(path).then(response => setData(response.data));
     };
 
-    useEffect(() => fetchContent(), [location, id]);
+    const updatePopup = () => {
+        if (file) {
+            popupContext.setCurrent(<FilePopup folder={folder} id={file} />)
+        }
+    };
+
+    useEffect(() => {
+        fetchContent();
+        updatePopup();
+    }, [location, folder, file]);
 
     if (data) {
         const files = data.content.files;

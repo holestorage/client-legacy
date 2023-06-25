@@ -3,7 +3,7 @@ import style from "./file-icon.module.css";
 import {HoleApi} from "../../../../../../App";
 import {useState} from "react";
 
-export default function FileIcon({ data }) {
+export default function FileIcon({ action, data }) {
     const [raw, setRaw] = useState(null);
 
     const type = data.type;
@@ -82,7 +82,7 @@ export default function FileIcon({ data }) {
 
         if (raw) {
             return (
-                <div className={style.container}>
+                <div onClick={action} className={style.container}>
                     {fileType.element(data, URL.createObjectURL(new Blob([raw])))}
                 </div>
             )
@@ -90,7 +90,7 @@ export default function FileIcon({ data }) {
     }
 
     return (
-        <div className={style.container}>
+        <div onClick={action} className={style.container}>
             <i className={[fileType?.icon || 'fa-regular fa-file', style.icon].join(" ")} />
         </div>
     )

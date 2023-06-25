@@ -3,9 +3,9 @@ import SectionContent from "../section/section-content";
 import FilesFallback from "../../../../../pages/fallback/files-fallback";
 
 export default function FolderContent() {
-    const { id } = useParams();
+    const { folder } = useParams();
 
     return (
-        <SectionContent accessible path={`folder/${id}`} fallback={<FilesFallback />} />
+        <SectionContent accessible path={`folder/${folder}`} fallback={<FilesFallback />} />
     )
 }

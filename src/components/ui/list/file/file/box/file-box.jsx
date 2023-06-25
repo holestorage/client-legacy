@@ -4,10 +4,10 @@ import FileIcon from "../icon/file-icon";
 import ToolList from "../../../tool/tool-list";
 import moment from "moment";
 
-export default function FileBox({ section, value }) {
+export default function FileBox({ open, section, value }) {
     return (
         <div className={style.container}>
-            <FileIcon data={value} />
+            <FileIcon action={() => open(value.id)} data={value} />
             <p>{value.name}</p>
             <p>{moment(value.date).calendar()}</p>
             <p>{value.size}</p>

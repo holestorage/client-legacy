@@ -80,7 +80,8 @@ export default function AppView() {
         <SideSidebarLayout header={<AppNavbar app />} head={<MainHead />} side={<MainSidebar />} left={<MainCategory list={category} />}>
             <Routes location={location}>
                 <Route path="/" element={<BoardPage fallback={<FilesFallback />} />}/>
-                <Route path="/folder/:id" element={<FolderContent />}/>
+                <Route path="/folder/:folder" element={<FolderContent />}/>
+                <Route path="/folder/:folder/:file" element={<FolderContent />}/>
                 <Route path="/photos" element={<BoardPage fallback={<PhotosFallback />} />}/>
 
                 <Route path="/pinned" element={<BoardPage fallback={<FilesFallback />} />}/>
