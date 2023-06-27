@@ -8,7 +8,7 @@ export default function FilePopup({ folder, data }) {
 
     return (
         <PopupContainer close={() => navigate(`/folder/${folder}`)}>
-            <ToolList accessible data={data} filter={item => item} subfilter={item => item.full} />
+            <ToolList accessible data={data} filter={item => item.full} />
             <FilePreview data={data} />
         </PopupContainer>
     )

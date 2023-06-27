@@ -10,18 +10,19 @@ import {useNavigate} from "react-router-dom";
 import {HoleApi} from "../../../../App";
 import { saveAs } from 'file-saver';
 
-export default function ToolList({ accessible, data, filter, subfilter }) {
+export default function ToolList({ accessible, data, filter }) {
     const list = [
         {
-            featured: true,
             list: [
                 {
+                    featured: true,
                     id: 'open',
                     name: 'Open',
                     icon: 'fa-regular fa-arrow-up-right-and-arrow-down-left-from-center',
                     action: (data) => open(data)
                 },
                 {
+                    featured: true,
                     full: true,
                     id: 'download',
                     name: 'Download',
@@ -64,19 +65,21 @@ export default function ToolList({ accessible, data, filter, subfilter }) {
             ]
         },
         {
-            featured: true,
             list: [
                 {
+                    featured: true,
                     id: 'clone',
                     name: 'Clone',
                     icon: 'fa-regular fa-clone'
                 },
                 {
+                    featured: true,
                     id: 'rename',
                     name: 'Rename',
                     icon: 'fa-regular fa-pen-to-square'
                 },
                 {
+                    featured: true,
                     id: 'remove',
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
@@ -100,14 +103,15 @@ export default function ToolList({ accessible, data, filter, subfilter }) {
 
     const inaccessible = [
         {
-            featured: true,
             list: [
                 {
+                    featured: true,
                     id: 'open',
                     name: 'Open',
                     icon: 'fa-regular fa-arrow-up-right-and-arrow-down-left-from-center'
                 },
                 {
+                    featured: true,
                     id: 'download',
                     name: 'Download',
                     icon: 'fa-regular fa-arrow-down-to-line',
@@ -120,9 +124,9 @@ export default function ToolList({ accessible, data, filter, subfilter }) {
             ]
         },
         {
-            featured: true,
             list: [
                 {
+                    featured: true,
                     id: 'remove',
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
@@ -160,10 +164,10 @@ export default function ToolList({ accessible, data, filter, subfilter }) {
     return (
         <div className={style.container}>
             {
-                (accessible ? list : inaccessible).filter(filter).map((value, key) =>
+                (accessible ? list : inaccessible).map((value, key) =>
                     <div className={style.element} key={key}>
                         {
-                            value.list.filter(subfilter).map((value, key) =>
+                            value.list.filter(filter).map((value, key) =>
                                 <Fragment key={key}>
                                     <Loadable loadable={value.await} action={() => value.dialog ? popupContext.setCurrent(
                                         <PopupDialog title={value.dialog.title} body={value.dialog.body}
