@@ -1,9 +1,9 @@
 import style from "./file-box.module.css";
 
-import FileIcon from "../icon/file-icon";
 import ToolList from "../../../tool/tool-list";
 import moment from "moment";
 import convertSize from "convert-size";
+import FileIcon from "../preview/icon/file-icon";
 
 export default function FileBox({ open, section, data }) {
     return (
