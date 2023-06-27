@@ -14,7 +14,7 @@ export default function InputPopup({ title, body, placeholder, children, button 
         <MainPopup title={title} footer={
             <Fragment>
                 <MainButton>
-                    <Loadable loadable action={button.action}>
+                    <Loadable loadable action={() => button.action(value)}>
                         <p>Confirm</p>
                     </Loadable>
                 </MainButton>
