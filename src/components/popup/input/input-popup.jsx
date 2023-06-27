@@ -1,18 +1,19 @@
-import style from "./popup-dialog.module.css";
-
 import MainPopup from "../main/main-popup";
 import MainButton from "../../ui/button/main/main-button";
-import {Fragment, useContext} from "react";
+import {Fragment, useContext, useState} from "react";
 import {PopupContext} from "../../provider/popup-provider";
 import Loadable from "../../skeleton/loadable/loadable";
+import IconInput from "../../ui/input/icon/icon-input";
 
-export default function PopupDialog({ title, body, children, button }) {
+export default function InputPopup({ title, body, placeholder, children, button }) {
+    const [value, setValue] = useState();
+
     const popupContext = useContext(PopupContext);
 
     return (
         <MainPopup title={title} footer={
             <Fragment>
-                <MainButton className={style[button.type]}>
+                <MainButton>
                     <Loadable loadable action={button.action}>
                         <p>Confirm</p>
                     </Loadable>
@@ -20,6 +21,8 @@ export default function PopupDialog({ title, body, children, button }) {
                 <MainButton text="Cancel" action={() => popupContext.setCurrent(null)} />
             </Fragment>
         }>
+            <IconInput placeholder={placeholder} type="text" value={value}
+                       onChange={(value) => setValue(value.target.value)}/>
             <h5>{body}</h5>
             {children}
         </MainPopup>

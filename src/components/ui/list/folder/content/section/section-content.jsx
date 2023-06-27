@@ -9,6 +9,7 @@ import {useLocation, useParams} from "react-router-dom";
 import Container from "../../../../container/container";
 import {PopupContext} from "../../../../../provider/popup-provider";
 import FilePopup from "../../../../../popup/content/file/file-popup";
+import InputPopup from "../../../../../popup/input/input-popup";
 
 export default function SectionContent({ title, path, fallback, ...props }) {
     const popupContext = useContext(PopupContext);
@@ -24,9 +25,14 @@ export default function SectionContent({ title, path, fallback, ...props }) {
 
     const updatePopup = () => {
         if (file) {
-            popupContext.setCurrent(<FilePopup folder={folder} id={file} />)
+            popupContext.setCurrent(<FilePopup folder={folder} id={file} />);
         }
     };
+
+    const createFolder = async (name) => {
+        await HoleApi.post('folder',{ parent: folder, name: name });
+        popupContext.setCurrent(null);
+    }
 
     useEffect(() => {
         fetchContent();
@@ -42,7 +48,7 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                 <HeaderMain left={
                     <Fragment>
                         <MainButton icon="fa-regular fa-angle-up" text="Upload file" />
-                        <MainButton icon="fa-regular fa-folder" text="Create folder" />
+                        <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => popupContext.setCurrent(<InputPopup button={{ action: (input) => createFolder(input) }} />)} />
                     </Fragment>
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}
