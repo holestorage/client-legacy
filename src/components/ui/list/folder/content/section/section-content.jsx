@@ -23,9 +23,11 @@ export default function SectionContent({ title, path, fallback, ...props }) {
         HoleApi.get(path).then(response => setData(response.data));
     };
 
-    const updatePopup = () => {
+    const updatePopup = async () => {
         if (file) {
-            popupContext.setCurrent(<FilePopup folder={folder} id={file} />);
+            const response = await HoleApi.get(`file/${file}`).then(response => response.data);
+
+            popupContext.setCurrent(<FilePopup folder={folder} data={response.file} />);
         }
     };
 
@@ -48,7 +50,9 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                 <HeaderMain left={
                     <Fragment>
                         <MainButton icon="fa-regular fa-angle-up" text="Upload file" />
-                        <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => popupContext.setCurrent(<InputPopup button={{ action: (input) => createFolder(input) }} />)} />
+                        <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => {
+                            popupContext.setCurrent(<InputPopup title="Create folder" placeholder="Folder name" button={{ action: (input) => createFolder(input) }} />);
+                        }} />
                     </Fragment>
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}

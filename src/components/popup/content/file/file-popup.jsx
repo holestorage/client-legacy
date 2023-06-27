@@ -1,12 +1,13 @@
-import MainPopup from "../../main/main-popup";
 import {useNavigate} from "react-router-dom";
+import PopupContainer from "../../container/popup-container";
+import FileIcon from "../../../ui/list/file/file/icon/file-icon";
 
-export default function FilePopup({ folder, id }) {
+export default function FilePopup({ folder, data }) {
     const navigate = useNavigate();
 
     return (
-        <MainPopup close={() => navigate(`/folder/${folder}`)}>
-            <p>content</p>
-        </MainPopup>
+        <PopupContainer close={() => navigate(`/folder/${folder}`)}>
+            <FileIcon data={data} />
+        </PopupContainer>
     )
 }
