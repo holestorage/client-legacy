@@ -10,7 +10,7 @@ import {useNavigate} from "react-router-dom";
 import {HoleApi} from "../../../../App";
 import { saveAs } from 'file-saver';
 
-export default function ToolList({ accessible, data, filter }) {
+export default function ToolList({ accessible, data, filter, subfilter }) {
     const list = [
         {
             featured: true,
@@ -22,6 +22,7 @@ export default function ToolList({ accessible, data, filter }) {
                     action: (data) => open(data)
                 },
                 {
+                    full: true,
                     id: 'download',
                     name: 'Download',
                     icon: 'fa-regular fa-arrow-down-to-line',
@@ -162,7 +163,7 @@ export default function ToolList({ accessible, data, filter }) {
                 (accessible ? list : inaccessible).filter(filter).map((value, key) =>
                     <div className={style.element} key={key}>
                         {
-                            value.list.map((value, key) =>
+                            value.list.filter(subfilter).map((value, key) =>
                                 <Fragment key={key}>
                                     <Loadable loadable={value.await} action={() => value.dialog ? popupContext.setCurrent(
                                         <PopupDialog title={value.dialog.title} body={value.dialog.body}

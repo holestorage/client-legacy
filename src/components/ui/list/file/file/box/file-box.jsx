@@ -13,7 +13,7 @@ export default function FileBox({ data, ...props }) {
             <p>{moment(data.date).calendar()}</p>
             <p>{convertSize(data.size, { accuracy: -1 })}</p>
             <div className={style.content}>
-                <ToolList { ...props } data={data} filter={item => item.featured} />
+                <ToolList { ...props } data={data} filter={item => item.featured} subfilter={item => item}  />
             </div>
         </div>
     )
