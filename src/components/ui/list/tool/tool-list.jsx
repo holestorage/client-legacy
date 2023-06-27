@@ -41,11 +41,13 @@ export default function ToolList({ accessible, data, filter }) {
         {
             list: [
                 {
+                    full: true,
                     id: 'share',
                     name: 'Share',
                     icon: 'fa-regular fa-user-plus'
                 },
                 {
+                    full: true,
                     id: 'send',
                     name: 'Send',
                     icon: 'fa-regular fa-link'
@@ -55,11 +57,13 @@ export default function ToolList({ accessible, data, filter }) {
         {
             list: [
                 {
+                    full: true,
                     id: 'pin',
                     name: 'Pin',
                     icon: 'fa-light fa-bookmark'
                 },
                 {
+                    full: true,
                     id: 'color',
                     name: 'Color',
                     icon: 'fa-regular fa-palette'
@@ -70,12 +74,14 @@ export default function ToolList({ accessible, data, filter }) {
             list: [
                 {
                     featured: true,
+                    full: true,
                     id: 'clone',
                     name: 'Clone',
                     icon: 'fa-regular fa-clone'
                 },
                 {
                     featured: true,
+                    full: true,
                     id: 'rename',
                     name: 'Rename',
                     icon: 'fa-regular fa-pen-to-square'
@@ -83,6 +89,7 @@ export default function ToolList({ accessible, data, filter }) {
                 {
                     featured: true,
                     inaccessible: true,
+                    full: true,
                     id: 'remove',
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
