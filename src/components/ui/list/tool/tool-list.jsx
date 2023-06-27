@@ -16,6 +16,7 @@ export default function ToolList({ accessible, data, filter }) {
             list: [
                 {
                     featured: true,
+                    inaccessible: true,
                     id: 'open',
                     name: 'Open',
                     icon: 'fa-regular fa-arrow-up-right-and-arrow-down-left-from-center',
@@ -24,6 +25,7 @@ export default function ToolList({ accessible, data, filter }) {
                 {
                     featured: true,
                     full: true,
+                    inaccessible: true,
                     id: 'download',
                     name: 'Download',
                     icon: 'fa-regular fa-arrow-down-to-line',
@@ -80,53 +82,7 @@ export default function ToolList({ accessible, data, filter }) {
                 },
                 {
                     featured: true,
-                    id: 'remove',
-                    name: 'Remove',
-                    icon: 'fa-regular fa-trash',
-                    action: (data) => {
-                        return HoleApi.patch(`file/${data.id}/trash`).then(ignored => {
-                            close();
-                        });
-                    },
-                    dialog: {
-                        title: "Delete file",
-                        body: "The file will be moved to trash. Are you sure?",
-                        button: {
-                            text: "Confirm",
-                            style: "danger"
-                        }
-                    }
-                }
-            ]
-        }
-    ]
-
-    const inaccessible = [
-        {
-            list: [
-                {
-                    featured: true,
-                    id: 'open',
-                    name: 'Open',
-                    icon: 'fa-regular fa-arrow-up-right-and-arrow-down-left-from-center'
-                },
-                {
-                    featured: true,
-                    id: 'download',
-                    name: 'Download',
-                    icon: 'fa-regular fa-arrow-down-to-line',
-                    action: (data) => {
-                        return HoleApi.get(`file/${data.id}/raw`).then(response => {
-                            saveAs(new Blob([response.data]), data.name);
-                        })
-                    }
-                }
-            ]
-        },
-        {
-            list: [
-                {
-                    featured: true,
+                    inaccessible: true,
                     id: 'remove',
                     name: 'Remove',
                     icon: 'fa-regular fa-trash',
@@ -164,7 +120,7 @@ export default function ToolList({ accessible, data, filter }) {
     return (
         <div className={style.container}>
             {
-                (accessible ? list : inaccessible).map((value, key) =>
+                list.map((value, key) =>
                     <div className={style.element} key={key}>
                         {
                             value.list.filter(filter).map((value, key) =>

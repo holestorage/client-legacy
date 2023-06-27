@@ -6,6 +6,6 @@ export default function FolderContent() {
     const { folder } = useParams();
 
     return (
-        <SectionContent accessible path={`folder/${folder}`} fallback={<FilesFallback />} />
+        <SectionContent accessible path={`folder/${folder}`} filter={item => item.featured} fallback={<FilesFallback />} />
     )
 }
