@@ -1,7 +1,7 @@
 import style from "./file-icon.module.css";
 
 import {HoleApi} from "../../../../../../App";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function FileIcon({ action, data }) {
     const [raw, setRaw] = useState(null);
@@ -73,13 +73,15 @@ export default function FileIcon({ action, data }) {
         }
     }
 
-    const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
-
-    if (fileType && fileType.element) {
+    useEffect(() => {
         HoleApi.get(`file/${data.id}/raw`, { responseType: "arraybuffer" }).then(response => {
             return setRaw(response.data);
         });
+    }, []);
 
+    const fileType = value.types.list.find((value) => value.list.some((item) => item.mimetype === type));
+
+    if (fileType && fileType.element) {
         if (raw) {
             return (
                 <div onClick={action} className={style.container}>
