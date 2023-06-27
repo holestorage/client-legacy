@@ -5,15 +5,15 @@ import moment from "moment";
 import convertSize from "convert-size";
 import FileIcon from "../preview/icon/file-icon";
 
-export default function FileBox({ open, section, data }) {
+export default function FileBox({ data, ...props }) {
     return (
         <div className={style.container}>
-            <FileIcon action={() => open(data)} data={data} />
+            <FileIcon data={data} />
             <p>{data.name}</p>
             <p>{moment(data.date).calendar()}</p>
             <p>{convertSize(data.size, { accuracy: -1 })}</p>
             <div className={style.content}>
-                <ToolList data={data} section={section.filter(item => item.featured)} />
+                <ToolList { ...props } data={data} filter={item => item.featured} />
             </div>
         </div>
     )
