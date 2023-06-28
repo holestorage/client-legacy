@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+
+    padding: var(--theme-value-padding-main);
+
+    height: 100%;
+}
+
+.header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 var(--theme-value-padding-big);
+}
+
+.content {
+    display: grid;
+    justify-content: center;
+}
