@@ -33,12 +33,15 @@ export default function SectionContent({ title, path, fallback, ...props }) {
 
     const createFolder = async (name) => {
         await HoleApi.post('folder',{ parent: folder, name: name });
-        popupContext.setCurrent(null);
     }
 
     useEffect(() => {
         fetchContent();
         updatePopup();
+
+        if (!file) {
+            popupContext.setCurrent(null);
+        }
     }, [location, folder, file]);
 
     if (data) {
