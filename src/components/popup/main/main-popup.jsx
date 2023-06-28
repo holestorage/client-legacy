@@ -11,7 +11,7 @@ export default function MainPopup({ title, children, footer, close }) {
     const popupContext = useContext(PopupContext);
 
     return (
-        <PopupContainer>
+        <PopupContainer centered>
             <div className={style.container}>
                 <div className={style.content}>
                     <div className={style.header}>

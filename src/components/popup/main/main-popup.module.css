@@ -1,6 +1,8 @@
 .container {
+    height: min-content;
+
     min-height: 100px;
-    width: 500px;
+    max-width: 500px;
 
     background: var(--theme-palette-main-color);
     padding: var(--theme-value-padding-big);

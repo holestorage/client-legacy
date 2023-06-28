@@ -1,4 +1,4 @@
-.container, .full {
+.container, .centered, .full {
     position: absolute;
     top: 0;
     right: 0;
@@ -6,10 +6,20 @@
     bottom: 0;
 }
 
+.centered {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+}
+
 .content {
     position: relative;
     z-index: 1;
+}
 
+.container > .content {
     height: 100%;
 }
 
