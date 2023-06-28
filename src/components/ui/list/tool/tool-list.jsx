@@ -1,16 +1,14 @@
 import style from "./tool-list.module.css";
 
-import {Fragment, useContext} from "react";
+import {Fragment} from "react";
 
 import IconButton from "../../button/icon/icon-button";
 import PopupDialog from "../../../popup/dialog/popup-dialog";
-import {PopupContext} from "../../../provider/popup-provider";
 import Loadable from "../../../skeleton/loadable/loadable";
-import {useNavigate} from "react-router-dom";
 import {HoleApi} from "../../../../App";
 import { saveAs } from 'file-saver';
 
-export default function ToolList({ accessible, data, filter }) {
+export default function ToolList({ data, filter, open, close }) {
     const list = [
         {
             list: [
@@ -110,19 +108,6 @@ export default function ToolList({ accessible, data, filter }) {
             ]
         }
     ]
-
-    const navigate = useNavigate();
-    const popupContext = useContext(PopupContext);
-
-    const close = () => {
-        popupContext.setCurrent(null)
-    };
-
-    const open = (data) => {
-        if (accessible) {
-            navigate(`/folder/${data.folder}/${data.id}`);
-        }
-    }
 
     return (
         <div className={style.container}>

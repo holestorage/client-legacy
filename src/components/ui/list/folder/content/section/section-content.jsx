@@ -27,7 +27,7 @@ export default function SectionContent({ title, path, fallback, ...props }) {
         if (file) {
             const response = await HoleApi.get(`file/${file}`).then(response => response.data);
 
-            popupContext.setCurrent(<FilePopup folder={folder} data={response.file} />);
+            popupContext.setCurrent(<FilePopup folder={folder} data={response['file']} />);
         }
     };
 

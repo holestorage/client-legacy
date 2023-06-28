@@ -4,16 +4,15 @@
     right: 0;
     left: 0;
     bottom: 0;
+}
 
-    display: grid;
-    align-items: center;
-    justify-items: center;
+.content {
+    position: relative;
+    z-index: 1;
 }
 
 .full {
-    z-index: -1;
-}
+    cursor: pointer;
 
-.container {
     background: rgba(0, 0, 0, 0.6);
 }
