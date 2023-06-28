@@ -21,8 +21,8 @@ export default function FileBox({ data, ...props }) {
     };
 
     return (
-        <div onClick={() => open(data)} className={style.container}>
-            <FileIcon data={data} />
+        <div className={style.container}>
+            <FileIcon data={data} action={() => open(data)} />
             <p>{data.name}</p>
             <p>{moment(data.date).calendar()}</p>
             <p>{convertSize(data.size, { accuracy: -1 })}</p>
