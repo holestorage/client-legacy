@@ -12,8 +12,8 @@ export default function PasswordRegisterContainer() {
         return await HoleApi.post('user', data)
             .then((response) => response.data)
             .then((data) => data.attempt.key)
-            .then((key) => {
-                HoleApi.post('user', {key: key, password: data.password})
+            .then(async (key) => {
+                await HoleApi.post('key/password', {attempt: key, key: data.key})
                     .then((response) => response.data)
                     .then((data) => cookies.set('token', data.token))
                     .then((navigate('/')));
