@@ -3,7 +3,7 @@ import style from "./popup-dialog.module.css";
 import MainPopup from "../main/main-popup";
 import MainButton from "../../ui/button/main/main-button";
 import {Fragment, useContext} from "react";
-import {PopupContext} from "../../provider/popup-provider";
+import {PopupContext} from "../../../provider/popup-provider";
 import Loadable from "../../skeleton/loadable/loadable";
 
 export default function PopupDialog({ title, body, children, button }) {

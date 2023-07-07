@@ -4,7 +4,7 @@ import MainView from "./components/view/app/main-view";
 
 import * as qs from "qs";
 import Cookies from 'universal-cookie';
-import PopupProvider from "./components/provider/popup-provider";
+import PopupProvider from "./provider/popup-provider";
 import axios from "axios";
 
 export const cookies = new Cookies();

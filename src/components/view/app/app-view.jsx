@@ -3,7 +3,6 @@ import {Route, Routes, useLocation} from "react-router-dom";
 import BoardPage from "../../pages/app/board-page";
 import MainCategory from "../../ui/category/main/main-category";
 import FilesFallback from "../../pages/fallback/files-fallback";
-import TrashFallback from "../../pages/fallback/trash-fallback";
 import AppNavbar from "../../navbar/app/app-navbar";
 import MainSidebar from "../../sidebar/main/main-sidebar";
 import MainHead from "../../head/main/main-head";

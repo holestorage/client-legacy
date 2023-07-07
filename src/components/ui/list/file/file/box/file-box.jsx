@@ -6,7 +6,7 @@ import convertSize from "convert-size";
 import FileIcon from "../preview/icon/file-icon";
 import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
-import {PopupContext} from "../../../../../provider/popup-provider";
+import {PopupContext} from "../../../../../../provider/popup-provider";
 
 export default function FileBox({ data, ...props }) {
     const navigate = useNavigate();

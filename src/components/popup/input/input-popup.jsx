@@ -1,7 +1,7 @@
 import MainPopup from "../main/main-popup";
 import MainButton from "../../ui/button/main/main-button";
 import {Fragment, useContext, useState} from "react";
-import {PopupContext} from "../../provider/popup-provider";
+import {PopupContext} from "../../../provider/popup-provider";
 import Loadable from "../../skeleton/loadable/loadable";
 import IconInput from "../../ui/input/icon/icon-input";
 

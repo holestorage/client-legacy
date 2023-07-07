@@ -4,7 +4,6 @@ import PageContainer from "../../ui/container/page/page-container";
 import MainButton from "../../ui/button/main/main-button";
 import FullBannerBox from "../../ui/box/banner/full/full-banner-box";
 import CardList from "../../ui/card/list/card-list";
-import MainCard from "../../ui/card/main/main-card";
 import PricingCard from "./card/pricing-card";
 
 const plans = [

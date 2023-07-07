@@ -5,7 +5,7 @@ import {useContext} from "react";
 import IconButton from "../../ui/button/icon/icon-button";
 import PopupContainer from "../container/popup-container";
 
-import {PopupContext} from "../../provider/popup-provider";
+import {PopupContext} from "../../../provider/popup-provider";
 
 export default function MainPopup({ title, children, footer, close }) {
     const popupContext = useContext(PopupContext);

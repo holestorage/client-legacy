@@ -7,7 +7,7 @@ import FolderList from "../../folder-list";
 import {HoleApi} from "../../../../../../App";
 import {useLocation, useParams} from "react-router-dom";
 import Container from "../../../../container/container";
-import {PopupContext} from "../../../../../provider/popup-provider";
+import {PopupContext} from "../../../../../../provider/popup-provider";
 import FilePopup from "../../../../../popup/content/file/file-popup";
 import InputPopup from "../../../../../popup/input/input-popup";
 
@@ -33,6 +33,7 @@ export default function SectionContent({ title, path, fallback, ...props }) {
 
     const createFolder = async (name) => {
         await HoleApi.post('folder',{ parent: folder, name: name });
+        popupContext.setCurrent(null);
     }
 
     useEffect(() => {
