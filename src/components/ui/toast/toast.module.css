@@ -1,0 +1,18 @@
+.container {
+    position: relative;
+
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--theme-value-padding-main);
+    align-items: center;
+
+    background: var(--theme-palette-main-light);
+    padding: var(--theme-value-padding-main) var(--theme-value-padding-big);
+    border-radius: var(--theme-value-border_radius-min);
+
+    z-index: 10;
+}
+
+.error {
+    background: var(--theme-color-error-main);
+}
