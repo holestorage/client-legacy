@@ -8,10 +8,11 @@ import PopupProvider from "./provider/popup-provider";
 import axios from "axios";
 import ToastProvider from './provider/toast-provider';
 import AccountProvider from "./provider/account-provider";
+import {makeUseAxios} from 'axios-hooks';
 
 export const cookies = new Cookies();
 
-const token = cookies.get('token') as string;
+const token = cookies.get('token');
 
 export const HoleApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/',
@@ -21,6 +22,10 @@ export const HoleApi = axios.create({
         'Authorization': token && `Bearer ${token}`
     },
     paramsSerializer: (params) => qs.stringify(params)
+});
+
+export const useAxios = makeUseAxios({
+    axios: HoleApi,
 });
 
 function App() {
