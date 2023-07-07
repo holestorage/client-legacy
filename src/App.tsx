@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 import PopupProvider from "./provider/popup-provider";
 import axios from "axios";
 import ToastProvider from './provider/toast-provider';
+import AccountProvider from "./provider/account-provider";
 
 export const cookies = new Cookies();
 
@@ -25,11 +26,13 @@ export const HoleApi = axios.create({
 function App() {
     return (
         <div className="App">
-            <PopupProvider>
-                <ToastProvider>
-                    <MainView/>
-                </ToastProvider>
-            </PopupProvider>
+            <AccountProvider>
+                <PopupProvider>
+                    <ToastProvider>
+                        <MainView/>
+                    </ToastProvider>
+                </PopupProvider>
+            </AccountProvider>
         </div>
     );
 }
