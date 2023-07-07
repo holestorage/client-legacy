@@ -6,6 +6,7 @@ import * as qs from "qs";
 import Cookies from 'universal-cookie';
 import PopupProvider from "./provider/popup-provider";
 import axios from "axios";
+import ToastProvider from './provider/toast-provider';
 
 export const cookies = new Cookies();
 
@@ -25,7 +26,9 @@ function App() {
     return (
         <div className="App">
             <PopupProvider>
-                <MainView/>
+                <ToastProvider>
+                    <MainView/>
+                </ToastProvider>
             </PopupProvider>
         </div>
     );
