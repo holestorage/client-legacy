@@ -1,30 +1,29 @@
 import MainPopup from "../main/main-popup";
 import MainButton from "../../ui/button/main/main-button";
-import {Fragment, useContext, useState} from "react";
-import {PopupContext} from "../../../provider/popup-provider";
-import Loadable from "../../skeleton/loadable/loadable";
+import {useContext, useState} from "react";
+import Form from "../../../context/form";
 import IconInput from "../../ui/input/icon/icon-input";
+import {PopupContext} from "../../../provider/popup-provider";
 
 export default function InputPopup({ title, body, placeholder, children, button }) {
-    const [value, setValue] = useState();
+    const {setCurrent} = useContext(PopupContext);
 
-    const popupContext = useContext(PopupContext);
+    const [value, setValue] = useState('');
+
+    const handleSubmit = () => {
+        button.action(value);
+        setCurrent(null);
+    };
 
     return (
-        <MainPopup title={title} footer={
-            <Fragment>
-                <MainButton>
-                    <Loadable loadable action={() => button.action(value)}>
-                        <p>Confirm</p>
-                    </Loadable>
-                </MainButton>
-                <MainButton text="Cancel" action={() => popupContext.setCurrent(null)} />
-            </Fragment>
-        }>
-            <IconInput placeholder={placeholder} type="text" value={value}
-                       onChange={(value) => setValue(value.target.value)}/>
+        <MainPopup title={title}>
             <h5>{body}</h5>
             {children}
+            <Form onSubmit={handleSubmit}>
+                <IconInput placeholder={placeholder} type="text" value={value}
+                           onChange={(value) => setValue(value.target.value)}/>
+                <MainButton type="submit" text="Continue"/>
+            </Form>
         </MainPopup>
     )
 }
