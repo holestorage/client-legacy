@@ -1,11 +1,9 @@
 import style from "./upload-container.module.css";
 
-import UploadTrack from "../track/upload-track";
-
-export default function UploadContainer() {
+export default function UploadContainer({children}) {
     return (
         <div className={style.container}>
-            <UploadTrack />
+            {children}
         </div>
     );
 }

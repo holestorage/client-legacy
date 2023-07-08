@@ -11,8 +11,11 @@ import {PopupContext} from "../../../../../../provider/popup-provider";
 import FilePopup from "../../../../../popup/content/file/file-popup";
 import InputPopup from "../../../../../popup/input/input-popup";
 import FileDrop from "../../../../../file/drop/file-drop";
+import {UploadContext} from "../../../../../../provider/upload-provider";
 
 export default function SectionContent({ title, path, fallback, ...props }) {
+    const {upload, setUpload} = useContext(UploadContext);
+
     const popupContext = useContext(PopupContext);
 
     const [data, setData] = useState(null);
@@ -39,9 +42,22 @@ export default function SectionContent({ title, path, fallback, ...props }) {
 
     const uploadFile = async (file) => {
         await HoleApi.post('file',{ folder: folder, file: file }, { headers: { "Content-Type": "multipart/form-data" }, onUploadProgress: (event) => {
-            console.log(event)
+            handleFileUpload(file);
+            setUpload([...upload, {file: file, event: event}]);
         }});
     }
+
+    const handleFileUpload = (file) => {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            const fileData = e.target.result;
+
+            console.log(fileData); // You can do further processing with the JSON data here
+        };
+
+        reader.readAsText(file);
+    };
 
     useEffect(() => {
         fetchContent();

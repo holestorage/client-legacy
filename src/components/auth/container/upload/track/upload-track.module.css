@@ -1,3 +1,7 @@
 .container {
+    background: var(--theme-palette-main-light);
+    padding: var(--theme-value-padding-main);
+    border-radius: var(--theme-value-border_radius-min);
+
     min-width: 200px;
 }

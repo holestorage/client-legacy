@@ -1,7 +1,7 @@
 .container {
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
 
-    padding: var(--theme-value-padding-main);
+    padding: var(--theme-value-padding-big);
 }
