@@ -9,6 +9,7 @@ import axios from "axios";
 import ToastProvider from './provider/toast-provider';
 import AccountProvider from "./provider/account-provider";
 import {makeUseAxios} from 'axios-hooks';
+import UploadProvider from "./provider/upload-provider";
 
 export const cookies = new Cookies();
 
@@ -34,7 +35,9 @@ function App() {
             <AccountProvider>
                 <PopupProvider>
                     <ToastProvider>
-                        <MainView/>
+                        <UploadProvider>
+                            <MainView/>
+                        </UploadProvider>
                     </ToastProvider>
                 </PopupProvider>
             </AccountProvider>

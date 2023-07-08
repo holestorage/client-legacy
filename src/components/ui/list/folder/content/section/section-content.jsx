@@ -38,7 +38,9 @@ export default function SectionContent({ title, path, fallback, ...props }) {
     }
 
     const uploadFile = async (file) => {
-        await HoleApi.post('file',{ folder: folder, file: file }, { headers: { "Content-Type": "multipart/form-data" } });
+        await HoleApi.post('file',{ folder: folder, file: file }, { headers: { "Content-Type": "multipart/form-data" }, onUploadProgress: (event) => {
+            console.log(event)
+        }});
     }
 
     useEffect(() => {
