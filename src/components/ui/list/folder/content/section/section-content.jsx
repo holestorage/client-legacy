@@ -42,22 +42,9 @@ export default function SectionContent({ title, path, fallback, ...props }) {
 
     const uploadFile = async (file) => {
         await HoleApi.post('file',{ folder: folder, file: file }, { headers: { "Content-Type": "multipart/form-data" }, onUploadProgress: (event) => {
-            handleFileUpload(file);
-            setUpload([...upload, {file: file, event: event}]);
+            setUpload([...upload, {file: {name: file.name, size: file.size}, event: event}]);
         }});
     }
-
-    const handleFileUpload = (file) => {
-        const reader = new FileReader();
-
-        reader.onload = (e) => {
-            const fileData = e.target.result;
-
-            console.log(fileData); // You can do further processing with the JSON data here
-        };
-
-        reader.readAsText(file);
-    };
 
     useEffect(() => {
         fetchContent();
