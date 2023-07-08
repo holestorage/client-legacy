@@ -2,7 +2,7 @@ import style from "./file-drop.module.css";
 
 import React, { useState } from 'react';
 
-const FileDrop = ({children}) => {
+const FileDrop = ({action, children}) => {
     const [isDragging, setIsDragging] = useState(false);
 
     const handleDragEnter = (event) => {
@@ -22,7 +22,7 @@ const FileDrop = ({children}) => {
         event.preventDefault();
         setIsDragging(false);
 
-        //event.dataTransfer.getData('text/plain');
+        action(event.dataTransfer.files[0]);
     };
 
     return (

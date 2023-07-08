@@ -10,6 +10,7 @@ import Container from "../../../../container/container";
 import {PopupContext} from "../../../../../../provider/popup-provider";
 import FilePopup from "../../../../../popup/content/file/file-popup";
 import InputPopup from "../../../../../popup/input/input-popup";
+import FileDrop from "../../../../../file/drop/file-drop";
 
 export default function SectionContent({ title, path, fallback, ...props }) {
     const popupContext = useContext(PopupContext);
@@ -34,6 +35,10 @@ export default function SectionContent({ title, path, fallback, ...props }) {
     const createFolder = async (name) => {
         await HoleApi.post('folder',{ parent: folder, name: name });
         popupContext.setCurrent(null);
+    }
+
+    const uploadFile = async (file) => {
+        await HoleApi.post('file',{ folder: folder, file: file }, { headers: { "Content-Type": "multipart/form-data" } });
     }
 
     useEffect(() => {
@@ -61,8 +66,10 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}
                 </HeaderMain>
-                {folders.length > 0 && <FolderList { ...props } list={folders} />}
-                {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
+                <FileDrop action={uploadFile}>
+                    {folders.length > 0 && <FolderList { ...props } list={folders} />}
+                    {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
+                </FileDrop>
             </Container>
         )
     }
