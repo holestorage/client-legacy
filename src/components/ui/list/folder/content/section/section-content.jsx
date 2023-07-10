@@ -69,15 +69,19 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                         <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => {
                             popupContext.setCurrent(<InputPopup title="Create folder" placeholder="Folder name" button={{ action: (input) => createFolder(input) }} />);
                         }} />
-                        <input hidden ref={uploadInput} type="file" onChange={(file) => uploadFile(folder, file, upload, setUpload)} />
+                        <input hidden ref={uploadInput} type="file" onChange={(file) => uploadFile(folder, file.target.files, upload, setUpload)} />
                     </Fragment>
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}
                 </HeaderMain>
-                    {folders.length > 0 && <FolderList { ...props } list={folders} />}
-                <FileDrop action={(file) => uploadFile(folder, file, upload, setUpload)}>
-                    {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
-                </FileDrop>
+                <Container>
+                    <div>
+                        {folders.length > 0 && <FolderList { ...props } list={folders} />}
+                    </div>
+                    <FileDrop action={(file) => uploadFile(folder, file, upload, setUpload)}>
+                        {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
+                    </FileDrop>
+                </Container>
             </Container>
         )
     }

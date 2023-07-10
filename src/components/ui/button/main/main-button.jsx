@@ -8,7 +8,7 @@ export default function MainButton({ icon, text, children, action, submit, class
     }
 
     return (
-        <button className={[style.button, className].join(" ")} onClick={() => action()}>
+        <button className={[style.button, className].join(" ")} onClick={action}>
             {icon && <i className={icon}/>}
             {text}
             {children}

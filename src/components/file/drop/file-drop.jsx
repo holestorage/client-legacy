@@ -28,9 +28,7 @@ const FileDrop = ({action, children}) => {
         event.preventDefault();
         setIsDragging(false);
 
-        console.log(event.dataTransfer)
-
-        action(event.dataTransfer.files[0]);
+        action(event.dataTransfer.files);
     };
 
     return (

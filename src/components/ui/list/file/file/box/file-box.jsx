@@ -25,7 +25,7 @@ export default function FileBox({ data, ...props }) {
             <FileIcon data={data}/>
             <p>{data.name}</p>
             <p>{moment(data.date).calendar()}</p>
-            <p>{convertSize(data.size, { accuracy: -1 })}</p>
+            <p>{data.size && convertSize(data.size, { accuracy: -1 })}</p>
             <div className={style.content}>
                 <ToolList { ...props } data={data} open={open} close={close} />
             </div>
