@@ -4,6 +4,8 @@
     right: 0;
     left: 0;
     bottom: 0;
+
+    z-index: 5;
 }
 
 .centered {
@@ -16,7 +18,7 @@
 
 .content {
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
 .container > .content {
@@ -26,5 +28,5 @@
 .full {
     cursor: pointer;
 
-    background: rgba(0, 0, 0, 0.98);
+    background: rgba(0, 0, 0, 0.8);
 }
