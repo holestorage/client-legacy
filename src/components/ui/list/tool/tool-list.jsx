@@ -112,6 +112,23 @@ export default function ToolList({ data, filter, open, close }) {
         }
     ]
 
+    const handleClick = (event, value) => {
+        event.stopPropagation();
+        handleAction(value);
+    }
+
+    const handleAction = (value) => {
+        if (value.dialog) {
+            popupContext.setCurrent(
+                <PopupDialog title={value.dialog.title} body={value.dialog.body}
+                             button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />)
+
+                return;
+        }
+
+        value.action(data);
+    }
+
     return (
         <div className={style.container}>
             {
@@ -120,9 +137,7 @@ export default function ToolList({ data, filter, open, close }) {
                         {
                             value.list.filter(filter).map((value, key) =>
                                 <Fragment key={key}>
-                                    <Loadable loadable={value.await} action={() => value.dialog ? popupContext.setCurrent(
-                                        <PopupDialog title={value.dialog.title} body={value.dialog.body}
-                                                     button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />) : value.action(data)}>
+                                    <Loadable loadable={value.await} action={(event) => handleClick(event, value)}>
                                         <IconButton icon={value.icon} />
                                     </Loadable>
                                 </Fragment>

@@ -10,10 +10,10 @@ export default function Loadable({ loadable, action, end, children }) {
         <div className={style.container}>
             {
                 loading ? <LoadCircle /> :
-                    <div onClick={loadable ? () => {
+                    <div onClick={loadable ? (event) => {
                         setLoading(true);
-                        action().then(() => setLoading(false));
-                    } : () => action()}>
+                        action(event).then(() => setLoading(false));
+                    } : (event) => action(event)}>
                         {children}
                     </div>
             }
