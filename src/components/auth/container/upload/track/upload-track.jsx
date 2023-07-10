@@ -4,26 +4,36 @@ import UploadContainer from "../container/upload-container";
 import {Fragment, useContext} from "react";
 import {UploadContext} from "../../../../../provider/upload-provider";
 import convertSize from "convert-size";
+import IconButton from "../../../../ui/button/icon/icon-button";
 
 export default function UploadTrack() {
-    const {upload} = useContext(UploadContext);
+    const {upload, setUpload} = useContext(UploadContext);
 
-    return (
-        <UploadContainer>
-            <div className={style.container}>
-                <p>Upload</p>
-                <hr />
-                <div>
-                    {
-                        upload.map((value, key) =>
-                            <Fragment key={key}>
-                                <p>{value.file.name}</p>
-                                <p>{convertSize(value.file.size, { accuracy: -1 })}</p>
-                            </Fragment>
-                        )
-                    }
+    if (upload.length > 0) {
+        return (
+            <UploadContainer>
+                <div className={style.container}>
+                    <p>Upload</p>
+                    <hr />
+                    <div>
+                        {
+                            upload.map((value, key) =>
+                                <Fragment key={key}>
+                                    <div className={style.content}>
+                                        <div>
+                                            <p>{value.file.name}</p>
+                                            <p>{convertSize(value.file.size, { accuracy: -1 })}</p>
+                                        </div>
+                                        <IconButton action={() => setUpload(upload.slice(key + 1))} icon="fa-regular fa-xmark" />
+                                    </div>
+                                </Fragment>
+                            )
+                        }
+                    </div>
                 </div>
-            </div>
-        </UploadContainer>
-    );
+            </UploadContainer>
+        );
+    }
+
+    return null;
 }

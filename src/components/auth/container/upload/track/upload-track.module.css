@@ -1,7 +1,22 @@
 .container {
+    display: grid;
+    gap: var(--theme-value-padding-main);
+
     background: var(--theme-palette-main-light);
     padding: var(--theme-value-padding-main);
     border-radius: var(--theme-value-border_radius-min);
 
-    min-width: 200px;
+    min-width: 400px;
+}
+
+.content {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+.content > div {
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
 }

@@ -4,4 +4,6 @@
     right: 0;
 
     padding: var(--theme-value-padding-big);
+
+    z-index: 10;
 }
