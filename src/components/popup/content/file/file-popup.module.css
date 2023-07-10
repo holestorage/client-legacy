@@ -18,6 +18,10 @@
 }
 
 .content {
-    display: grid;
+    display: flex;
     justify-content: center;
+}
+
+.content > * {
+    max-width: 75%;
 }
