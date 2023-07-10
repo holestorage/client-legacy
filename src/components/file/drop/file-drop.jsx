@@ -1,9 +1,11 @@
 import style from "./file-drop.module.css";
 
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 
 const FileDrop = ({action, children}) => {
     const [isDragging, setIsDragging] = useState(false);
+
+    const wrapper = useRef();
 
     const handleDragEnter = (event) => {
         event.preventDefault();
@@ -14,7 +16,11 @@ const FileDrop = ({action, children}) => {
         event.preventDefault();
     };
 
-    const handleDragLeave = () => {
+    const handleDragLeave = (event) => {
+        if (event.target !== wrapper.current) {
+            return;
+        }
+
         setIsDragging(false);
     };
 
@@ -26,11 +32,12 @@ const FileDrop = ({action, children}) => {
     };
 
     return (
-        <div className={[isDragging && style.dragged].join(' ')}
-            onDragEnter={handleDragEnter}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}>
+        <div ref={wrapper} className={[style.container, isDragging && style.dragged].join(' ')}
+             onDragEnter={handleDragEnter}
+             onDragOver={handleDragOver}
+             onDragLeave={handleDragLeave}
+             onDrop={handleDrop}>
+            <div className={style.zone}/>
             {children}
         </div>
     );

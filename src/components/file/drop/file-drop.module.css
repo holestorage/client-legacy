@@ -1,3 +1,19 @@
-.dragged {
-    background: red;
+.container {
+    position: relative;
+}
+
+.dragged > .zone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: var(--theme-palette-brand-color-main);
+    border-radius: var(--theme-value-border_radius-min);
+    opacity: var(--theme-value-opacity-drag);
+}
+
+.dragged > * {
+    pointer-events: none;
 }
