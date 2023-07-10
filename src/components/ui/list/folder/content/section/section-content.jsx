@@ -1,4 +1,4 @@
-import {Fragment, useContext, useEffect, useState} from "react";
+import {Fragment, useContext, useEffect, useRef, useState} from "react";
 import HeaderMain from "../../../../header/main/header-main";
 import MainButton from "../../../../button/main/main-button";
 import PathDisplay from "../../../path/display/path-display";
@@ -23,6 +23,8 @@ export default function SectionContent({ title, path, fallback, ...props }) {
     const location = useLocation();
     const { folder, file } = useParams();
 
+    const uploadInput = useRef();
+
     const fetchContent = () => {
         HoleApi.get(path).then(response => setData(response.data));
     };
@@ -38,6 +40,10 @@ export default function SectionContent({ title, path, fallback, ...props }) {
     const createFolder = async (name) => {
         await HoleApi.post('folder',{ parent: folder, name: name });
         popupContext.setCurrent(null);
+    }
+
+    const handleUpload = () => {
+        uploadInput.current?.click();
     }
 
     useEffect(() => {
@@ -57,10 +63,13 @@ export default function SectionContent({ title, path, fallback, ...props }) {
             <Container>
                 <HeaderMain left={
                     <Fragment>
-                        <MainButton icon="fa-regular fa-angle-up" text="Upload file" />
+                        <FileDrop action={(file) => uploadFile(folder, file, upload, setUpload)}>
+                        <MainButton action={handleUpload} icon="fa-regular fa-angle-up" text="Upload file" />
+                        </FileDrop>
                         <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => {
                             popupContext.setCurrent(<InputPopup title="Create folder" placeholder="Folder name" button={{ action: (input) => createFolder(input) }} />);
                         }} />
+                        <input hidden ref={uploadInput} type="file" onChange={(file) => uploadFile(folder, file, upload, setUpload)} />
                     </Fragment>
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}

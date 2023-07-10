@@ -21,7 +21,7 @@ export default function UploadTrack() {
                                 <Fragment key={key}>
                                     <div className={style.content}>
                                         <div>
-                                            <p>{value.file.name}</p>
+                                            <h5>{value.file.name}</h5>
                                             <p>{convertSize(value.file.size, { accuracy: -1 })}</p>
                                         </div>
                                         <IconButton action={() => setUpload(upload.slice(key + 1))} icon="fa-regular fa-xmark" />

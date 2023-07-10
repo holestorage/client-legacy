@@ -18,5 +18,6 @@
 .content > div {
     display: grid;
     grid-auto-flow: column;
-    align-content: center;
+    gap: var(--theme-value-padding-main);
+    align-items: center;
 }
