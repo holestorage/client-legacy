@@ -1,9 +1,10 @@
 import {useNavigate} from 'react-router-dom';
 import MainBox from "../../../ui/box/main/main-box";
 import MainButton from "../../../ui/button/main/main-button";
-import {cookies, HoleApi} from "../../../../App";
+import {HoleApi} from "../../../../App";
 import Form from "../../../../context/form";
 import Input from "../../../../context/input";
+import Cookies from "js-cookie";
 
 export default function PasswordLoginContainer() {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function PasswordLoginContainer() {
     const login = async (data) => {
         return await HoleApi.post('user/login', data)
             .then((response) => response.data)
-            .then((data) => cookies.set('token', data.token))
+            .then((data) => Cookies.set('token', data.token, { path: '/' }))
             .then((navigate('/')));
     };
 

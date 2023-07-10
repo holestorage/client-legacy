@@ -1,9 +1,10 @@
 import {useNavigate} from 'react-router-dom';
 import MainBox from "../../../ui/box/main/main-box";
 import MainButton from "../../../ui/button/main/main-button";
-import {cookies, HoleApi} from "../../../../App";
+import {HoleApi} from "../../../../App";
 import Form from "../../../../context/form";
 import Input from "../../../../context/input";
+import Cookies from "js-cookie";
 
 export default function PasswordRegisterContainer() {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function PasswordRegisterContainer() {
             .then(async (key) => {
                 await HoleApi.post('key/password', {attempt: key, key: data.key})
                     .then((response) => response.data)
-                    .then((data) => cookies.set('token', data.token))
+                    .then((data) => Cookies.get('token').set('token', data.token))
                     .then((navigate('/')));
             })
     };
