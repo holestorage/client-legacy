@@ -6,8 +6,8 @@ export const UploadContext = createContext('upload');
 export const uploadFile = async (folder, files, upload, setUpload) => {
     for (const file of files) {
         await HoleApi.post('file',{ folder: folder, file: file }, { headers: { "Content-Type": "multipart/form-data" }, onUploadProgress: (event) => {
-                setUpload([...upload, {file: {name: file.name, size: file.size}, event: event}]);
-            }});
+                setUpload([...upload, { file: {name: file.name, size: file.size }, event: event}]);
+            }}).then(({ data }) => setUpload([...upload, { file: data.file }]));
     }
 }
 
