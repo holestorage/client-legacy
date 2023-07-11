@@ -114,19 +114,17 @@ export default function ToolList({ data, filter, open, close }) {
 
     const handleClick = (event, value) => {
         event.stopPropagation();
-        handleAction(value);
+        return handleAction(value);
     }
 
     const handleAction = (value) => {
         if (value.dialog) {
-            popupContext.setCurrent(
+            return popupContext.setCurrent(
                 <PopupDialog title={value.dialog.title} body={value.dialog.body}
                              button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />)
-
-                return;
         }
 
-        value.action(data);
+        return value.action(data);
     }
 
     return (
