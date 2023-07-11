@@ -1,3 +1,5 @@
+import style from "./section-content.module.css";
+
 import {Fragment, useContext, useEffect, useRef, useState} from "react";
 import HeaderMain from "../../../../header/main/header-main";
 import MainButton from "../../../../button/main/main-button";
@@ -74,10 +76,8 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                 }>
                     {title ? <h3>{title}</h3> : <PathDisplay data={data.content} />}
                 </HeaderMain>
-                <Container>
-                    <div>
-                        {folders.length > 0 && <FolderList { ...props } list={folders} />}
-                    </div>
+                <Container className={folders.length < 1 && style.container}>
+                    {folders.length > 0 && <FolderList { ...props } list={folders} />}
                     <FileDrop action={(file) => uploadFile(folder, file, upload, setUpload)}>
                         {files.length > 0 ? <FileList { ...props } list={files} /> : fallback}
                     </FileDrop>

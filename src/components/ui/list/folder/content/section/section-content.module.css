@@ -1,4 +1,3 @@
-.content {
-    display: grid;
-    gap: var(--theme-value-padding-main);
+.container {
+    grid-template-rows: 1fr;
 }

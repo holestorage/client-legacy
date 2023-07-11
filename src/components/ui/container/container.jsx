@@ -1,8 +1,8 @@
 import style from "./container.module.css";
 
-export default function Container({ children }) {
+export default function Container({ className, children }) {
     return (
-        <div className={style.container}>
+        <div className={[className, style.container].join(' ')}>
             {children}
         </div>
     )

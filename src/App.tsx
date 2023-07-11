@@ -11,6 +11,8 @@ import AccountProvider from "./provider/account-provider";
 import {makeUseAxios} from 'axios-hooks';
 import UploadProvider from "./provider/upload-provider";
 import UploadTrack from "./components/auth/container/upload/track/upload-track";
+import {ErrorBoundary} from "react-error-boundary";
+import ErrorBoundaryWrapper from "./native/error-boundary/error-boundary-wrapper";
 
 const token = Cookies.get('token');
 
@@ -31,16 +33,18 @@ export const useAxios = makeUseAxios({
 function App() {
     return (
         <div className="App">
-            <AccountProvider>
-                <PopupProvider>
-                    <ToastProvider>
-                        <UploadProvider>
-                            <MainView/>
-                            <UploadTrack />
-                        </UploadProvider>
-                    </ToastProvider>
-                </PopupProvider>
-            </AccountProvider>
+            <ErrorBoundaryWrapper>
+                <AccountProvider>
+                    <PopupProvider>
+                        <ToastProvider>
+                            <UploadProvider>
+                                <MainView/>
+                                <UploadTrack />
+                            </UploadProvider>
+                        </ToastProvider>
+                    </PopupProvider>
+                </AccountProvider>
+            </ErrorBoundaryWrapper>
         </div>
     );
 }
