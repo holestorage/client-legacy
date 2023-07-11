@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--theme-value-padding-main);
+    align-items: center;
+
+    width: min-content;
+    white-space: nowrap;
+}

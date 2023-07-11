@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {PopupContext} from "../../../../../../provider/popup-provider";
 import PinTool from "../../../../../popup/content/file/tool/pin-tool";
+import InlineDisplay from "../../../../../display/inline/inline-display";
 
 export default function FileBox({ data, ...props }) {
     const navigate = useNavigate();
@@ -24,10 +25,10 @@ export default function FileBox({ data, ...props }) {
     return (
         <div onClick={() => open(data)} className={style.container}>
             <FileIcon data={data}/>
-            <div>
+            <InlineDisplay>
                 <p>{data.name}</p>
                 {data.pinned.length > 0 && <PinTool />}
-            </div>
+            </InlineDisplay>
             <p>{moment(data.date).calendar()}</p>
             <p>{data.size && convertSize(data.size, { accuracy: -1 })}</p>
             <div className={style.content}>
