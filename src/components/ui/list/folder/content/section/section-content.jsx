@@ -11,9 +11,9 @@ import {useLocation, useParams} from "react-router-dom";
 import Container from "../../../../container/container";
 import {PopupContext} from "../../../../../../provider/popup-provider";
 import FilePopup from "../../../../../popup/content/file/file-popup";
-import InputPopup from "../../../../../popup/input/input-popup";
 import FileDrop from "../../../../../file/drop/file-drop";
 import {UploadContext, uploadFile} from "../../../../../../provider/upload-provider";
+import CreateFolderPopup from "../../../../../popup/content/create-folder-popup";
 
 export default function SectionContent({ title, path, fallback, ...props }) {
     const {upload, setUpload} = useContext(UploadContext);
@@ -35,14 +35,9 @@ export default function SectionContent({ title, path, fallback, ...props }) {
         if (file) {
             const response = await HoleApi.get(`file/${file}`).then(response => response.data);
 
-            popupContext.setCurrent(<FilePopup folder={folder} data={response['file']} />);
+            popupContext.setCurrent(<FilePopup folder={folder} data={response.file} />);
         }
     };
-
-    const createFolder = async (name) => {
-        await HoleApi.post('folder',{ parent: folder, name: name });
-        popupContext.setCurrent(null);
-    }
 
     const handleUpload = () => {
         uploadInput.current?.click();
@@ -68,9 +63,7 @@ export default function SectionContent({ title, path, fallback, ...props }) {
                         <FileDrop action={(file) => uploadFile(folder, file, upload, setUpload)}>
                         <MainButton action={handleUpload} icon="fa-regular fa-angle-up" text="Upload file" />
                         </FileDrop>
-                        <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => {
-                            popupContext.setCurrent(<InputPopup title="Create folder" placeholder="Folder name" button={{ action: (input) => createFolder(input) }} />);
-                        }} />
+                        <MainButton icon="fa-regular fa-folder" text="Create folder" action={() => popupContext.setCurrent(<CreateFolderPopup folder={folder} />)} />
                         <input hidden ref={uploadInput} type="file" onChange={(file) => uploadFile(folder, file.target.files, upload, setUpload)} />
                     </Fragment>
                 }>

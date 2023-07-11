@@ -120,8 +120,11 @@ export default function ToolList({ data, filter, open, close }) {
     const handleAction = (value) => {
         if (value.dialog) {
             return popupContext.setCurrent(
-                <PopupDialog title={value.dialog.title} body={value.dialog.body}
-                             button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }} />)
+                <PopupDialog title={value.dialog.title}
+                             body={value.dialog.body}
+                             button={{ text: value.dialog.button.text, type: value.dialog.button.style, action: () => value.action(data) }}
+                />
+            )
         }
 
         return value.action(data);
