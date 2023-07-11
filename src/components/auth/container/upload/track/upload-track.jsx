@@ -5,6 +5,7 @@ import {Fragment, useContext} from "react";
 import {UploadContext} from "../../../../../provider/upload-provider";
 import convertSize from "convert-size";
 import IconButton from "../../../../ui/button/icon/icon-button";
+import FileIcon from "../../../../ui/list/file/file/preview/icon/file-icon";
 
 export default function UploadTrack() {
     const {upload, setUpload} = useContext(UploadContext);
@@ -21,6 +22,7 @@ export default function UploadTrack() {
                                 <Fragment key={key}>
                                     <div className={style.content}>
                                         <div>
+                                            <FileIcon data={value.file} />
                                             <h5>{value.file.name}</h5>
                                             <p>{convertSize(value.file.size, { accuracy: -1 })}</p>
                                         </div>
