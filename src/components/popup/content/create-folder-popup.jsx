@@ -12,6 +12,6 @@ export default function CreateFolderPopup({ folder, ...props }) {
     }
 
     return (
-        <InputPopup title="Create folder" placeholder="Folder name" button={{ action: (input) => createFolder(input) }} { ...props } />
+        <InputPopup title="New folder" placeholder="Folder name" button={{ action: (input) => createFolder(input) }} { ...props } />
     )
 }

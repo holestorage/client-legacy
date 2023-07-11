@@ -9,7 +9,7 @@
     border-radius: var(--theme-value-border_radius-min);
 
     display: grid;
-    gap: var(--theme-value-padding-big);
+    gap: var(--theme-value-padding-main);
     grid-template-rows: auto 1fr;
 }
 

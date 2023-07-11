@@ -100,8 +100,7 @@ export default function ToolList({ data, filter, open, close }) {
                         });
                     },
                     dialog: {
-                        title: "Delete file",
-                        body: "The file will be moved to trash. Are you sure?",
+                        title: "Move to trash?",
                         button: {
                             text: "Confirm",
                             style: "danger"
