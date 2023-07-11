@@ -8,7 +8,7 @@
 
 .dragged {
     border-radius: var(--theme-value-border_radius-min);
-    border: 1px solid var(--theme-palette-brand-color-main);
+    outline: 1px solid var(--theme-palette-brand-color-main);
 }
 
 .dragged > .zone {
